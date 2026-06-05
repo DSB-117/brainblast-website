@@ -909,7 +909,80 @@
     text-decoration: none;
     color: var(--soft);
   }
-</style>
+
+  /* ── MOBILE ── */
+  html, body { overflow-x: hidden; }
+
+  @media (max-width: 900px) {
+    /* Header */
+    header { padding: 0 1.5rem; height: 56px; }
+    nav { display: none; }
+
+    /* Hero */
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 5rem 1.5rem 3rem;
+      gap: 3rem;
+      min-height: auto;
+    }
+
+    /* Briefing panel — hide on small screens, it's decorative */
+    .briefing-panel { display: none; }
+
+    /* Villain */
+    .villain { padding: 3rem 1.5rem; }
+    .villain-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Weapon */
+    .weapon { padding: 4rem 1.5rem; }
+    .weapon-cols { grid-template-columns: 1fr; }
+
+    /* Proof */
+    .proof { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+
+    /* Workflow */
+    .workflow { padding: 4rem 1.5rem; }
+    .workflow-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .command-block { font-size: 12px; padding: 0.9rem 1rem; word-break: break-all; }
+
+    /* Agents */
+    .agents {
+      grid-template-columns: 1fr;
+      padding: 4rem 1.5rem;
+      gap: 2.5rem;
+    }
+
+    /* Security */
+    .security { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+
+    /* Roadmap */
+    .roadmap { padding: 4rem 1.5rem; }
+    .timeline { grid-template-columns: 1fr 1fr; }
+
+    /* Get started */
+    .get-started { padding: 4rem 1.5rem; }
+    .copy-block { font-size: 11px; word-break: break-all; flex-wrap: wrap; gap: 0.75rem; }
+    .copy-block .copy-btn { align-self: flex-end; }
+
+    /* Closing */
+    .closing { padding: 5rem 1.5rem; }
+    .closing .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
+    .btn-primary, .btn-secondary { justify-content: center; }
+
+    /* Footer */
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.75rem; text-align: center; }
+  }
+
+  @media (max-width: 560px) {
+    .villain-grid { grid-template-columns: 1fr; }
+    .workflow-grid { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; }
+    .hero h1 { font-size: clamp(3rem, 16vw, 4.5rem); }
+    header { height: 52px; }
+    .logo-icon { height: 40px; }
+  }
+
+  </style>
 </head>
 <body>
 
