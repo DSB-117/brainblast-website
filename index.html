@@ -982,6 +982,51 @@
     .logo-icon { height: 40px; }
   }
 
+  
+  /* ── BRAIN TOKEN STRIP ── */
+  .token-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(20,84,216,0.05);
+    padding: 1rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .token-strip span {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .token-strip .token-pill {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--cyan);
+    background: rgba(47,200,238,0.08);
+    border: 1px solid rgba(47,200,238,0.25);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+  }
+  .token-strip a {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.15s;
+  }
+  .token-strip a:hover { color: var(--cyan); }
+
+  @media (max-width: 900px) {
+    .token-strip { padding: 1rem 1.5rem; text-align: center; }
+  }
+
   </style>
 </head>
 <body>
@@ -1312,6 +1357,13 @@
       </div>
     </div>
   </section>
+
+  <!-- BRAIN TOKEN STRIP -->
+  <div class="token-strip">
+    <span class="token-pill">$BRAIN</span>
+    <span>The token that funds brainblast development.</span>
+    <a href="https://bags.fm/5wxVBRmjaRLw71SE7nNFzTioEtQdzM5EkdP5k1BDBAGS" target="_blank" rel="noopener">Trade on BAGS ↗</a>
+  </div>
 
   <!-- CLOSING -->
   <section class="closing">
