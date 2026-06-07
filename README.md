@@ -1,6 +1,6 @@
 # brainblast.tech
 
-The official product website for brainblast.
+Static marketing site for brainblast.
 
 ## Local preview
 
