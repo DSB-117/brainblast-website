@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="brainblast researches live API and SDK docs before AI-written integrations ship, then turns the findings into reports, CI gates, and durable guardrails."
+      content="brainblast is an open-source security auditor and rule-pack economy that turns proven security knowledge into deterministic checks, fixes, and $BRAIN rewards."
     />
-    <title>brainblast | Turn live docs into integration guardrails</title>
+    <title>brainblast | Security knowledge economy powered by $BRAIN</title>
     <link rel="icon" href="assets/icon.jpg" type="image/jpeg" />
     <link rel="apple-touch-icon" href="assets/icon.jpg" />
     <link rel="preload" href="assets/logo_large.jpg" as="image" />
@@ -20,10 +20,10 @@
         <img src="assets/logo_large.jpg" alt="brainblast" />
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#problem">Problem</a>
-        <a href="#proof">Proof</a>
-        <a href="#workflow">Workflow</a>
-        <a href="#roadmap">Roadmap</a>
+        <a href="#auditor">Auditor</a>
+        <a href="#flywheel">Flywheel</a>
+        <a href="#economy">Economy</a>
+        <a href="#install">Install</a>
       </nav>
       <a class="header-cta" href="https://github.com/DSB-117/brainblast">GitHub</a>
       <button class="menu-button" type="button" data-menu-button aria-label="Open menu">
@@ -33,10 +33,10 @@
     </header>
 
     <nav class="mobile-nav" data-mobile-nav aria-label="Mobile navigation">
-      <a href="#problem">Problem</a>
-      <a href="#proof">Proof</a>
-      <a href="#workflow">Workflow</a>
-      <a href="#roadmap">Roadmap</a>
+      <a href="#auditor">Auditor</a>
+      <a href="#flywheel">Flywheel</a>
+      <a href="#economy">Economy</a>
+      <a href="#install">Install</a>
       <a href="https://github.com/DSB-117/brainblast">GitHub</a>
     </nav>
 
@@ -48,146 +48,144 @@
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow">Pre-flight checks for AI-written integrations</p>
-            <h1 id="hero-title">Turn docs into guardrails your agents can enforce.</h1>
+            <p class="eyebrow">Open-source security auditor</p>
+            <h1 id="hero-title">Security knowledge that proves itself in code.</h1>
             <p class="hero-lede">
-              brainblast reads a spec, researches every external API and SDK from live official
-              sources, and produces the evidence an AI coding agent needs before it writes the bug
-              you only discover in production.
+              brainblast runs deterministic checks against codebases, applies mechanical fixes for
+              confirmed issues, and is opening a rule-pack economy where experts earn $BRAIN when
+              their security knowledge helps real teams fix real bugs.
             </p>
             <div class="hero-actions" aria-label="Primary actions">
               <a class="button button-primary" href="#install">Run brainblast</a>
-              <a class="button button-secondary" href="#problem">See the failure mode</a>
+              <a class="button button-secondary" href="#flywheel">See the $BRAIN flywheel</a>
             </div>
           </div>
 
-          <aside class="signal-panel" aria-label="Example brainblast output">
+          <aside class="signal-panel" aria-label="brainblast security signal">
             <div class="panel-topline">
-              <span>report.json</span>
-              <strong>schema 1.0</strong>
+              <span>v0.4.3</span>
+              <strong>RED -&gt; GREEN</strong>
             </div>
             <div class="signal-risk">
-              <span>CRITICAL</span>
-              <p>Immutable launch config can silently omit the creator fee wallet.</p>
+              <span>detect</span>
+              <p>Find leaked secrets, unverified webhooks, auth bypasses, command injection, and protocol-specific traps.</p>
             </div>
             <div class="signal-evidence">
-              <span>evidence</span>
-              <p>Official docs fetched, quoted, dated, and linked for reviewer audit.</p>
+              <span>trace</span>
+              <p>Project-wide taint tracking follows sensitive data across files until it reaches a dangerous sink.</p>
             </div>
             <div class="signal-status">
-              <span>CI gate</span>
-              <strong>blocks on unresolved criticals</strong>
+              <span>fix loop</span>
+              <strong>fix --apply, then re-audit</strong>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="problem-section" id="problem" aria-labelledby="problem-title">
+      <section class="problem-section" id="auditor" aria-labelledby="auditor-title">
         <div class="section-intro">
-          <p class="eyebrow">The expensive gap</p>
-          <h2 id="problem-title">Retrieving docs is not the same as preventing failure.</h2>
+          <p class="eyebrow">Deterministic by design</p>
+          <h2 id="auditor-title">No hallucinated security theater. Checks that know what failure looks like.</h2>
           <p>
-            Most AI-doc tools hand an agent more context and hope the model notices the trap.
-            brainblast does the product work after retrieval: it names the risk, records the
-            evidence, answers the open questions, and gives CI a surface it can enforce.
+            brainblast is a tireless reviewer for codebases. It does not merely suggest that
+            something might be wrong. It runs concrete rules, points to the exact location, and
+            tells you how to fix the issue before it ships.
           </p>
         </div>
         <div class="problem-grid">
           <article>
             <span class="number">01</span>
-            <h3>Agents remember old APIs</h3>
-            <p>Training data drifts behind current SDKs, auth flows, rate limits, and breaking changes.</p>
+            <h3>Real exploit classes</h3>
+            <p>Stripe webhook verification, JWT auth bypasses, command injection, secret leaks, and Solana misconfigurations.</p>
           </article>
           <article>
             <span class="number">02</span>
-            <h3>Some defaults are irreversible</h3>
-            <p>Wrong launch configs, webhook verification, permissions, or fee routes can look fine until value moves.</p>
+            <h3>Project-wide taint tracking</h3>
+            <p>Follow a secret from an environment variable across files and functions into logs, responses, or other unsafe sinks.</p>
           </article>
           <article>
             <span class="number">03</span>
-            <h3>Red builds need evidence</h3>
-            <p>A gate that says "failed" is friction. A gate with cited docs and a risk heatmap is a decision.</p>
+            <h3>Fixes must prove out</h3>
+            <p><code>brainblast fix --apply</code> applies mechanical fixes and re-checks that the bug moved from RED to GREEN.</p>
           </article>
         </div>
       </section>
 
-      <section class="thesis-section" aria-labelledby="thesis-title">
-        <div class="thesis-copy">
-          <p class="eyebrow">The product thesis</p>
-          <h2 id="thesis-title">Predict. Enforce. Watch. Compound.</h2>
+      <section class="flywheel-section" id="flywheel" aria-labelledby="flywheel-title">
+        <div class="section-intro narrow">
+          <p class="eyebrow">$BRAIN flywheel</p>
+          <h2 id="flywheel-title">A marketplace for security knowledge, paid only when it works.</h2>
           <p>
-            brainblast starts before code, but the roadmap turns each report into standing protection:
-            a build gate today, generated tests next, scheduled drift checks after merge, and portable
-            component intelligence that gets sharper every time a team runs it.
+            The people who know a protocol's footguns are rarely the people maintaining a
+            general-purpose scanner. brainblast flips that: domain experts publish rule packs,
+            users unlock premium packs, and $BRAIN moves value toward rules that produce confirmed fixes.
           </p>
         </div>
-        <div class="ladder" aria-label="brainblast capability ladder">
-          <div>
-            <span>Predict</span>
-            <p>Find silent integration failures before implementation.</p>
-          </div>
-          <div>
-            <span>Enforce</span>
-            <p>Block unresolved criticals and generate durable checks.</p>
-          </div>
-          <div>
-            <span>Watch</span>
-            <p>Re-research pinned components when docs or advisories move.</p>
-          </div>
-          <div>
-            <span>Compound</span>
-            <p>Reuse verified component intel across projects and agents.</p>
-          </div>
+        <div class="flywheel-orbit" aria-label="$BRAIN rule pack flywheel">
+          <article>
+            <span>1</span>
+            <h3>Stake to publish</h3>
+            <p>Rule authors stake $BRAIN to list packs. Severity sets the deposit size, and every pack must pass the prove gate first.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>Prove RED -&gt; GREEN</h3>
+            <p>A pack has to catch its own test cases before entering the registry. Junk rules do not get a free lane.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>Earn on fixes</h3>
+            <p>Rules become bounty-eligible only after five users, on five repos, accept a working <code>fix --apply</code>.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <h3>Compound the pool</h3>
+            <p>Premium pack payments split between authors and the bounty pool, so useful security knowledge funds more useful rules.</p>
+          </article>
         </div>
       </section>
 
-      <section class="proof-section" id="proof" aria-labelledby="proof-title">
-        <div class="section-intro">
-          <p class="eyebrow">Shipped surface</p>
-          <h2 id="proof-title">Already more than a memo.</h2>
+      <section class="economy-section" id="economy" aria-labelledby="economy-title">
+        <div class="economy-copy">
+          <p class="eyebrow">Security knowledge economy</p>
+          <h2 id="economy-title">$BRAIN is the unit of account for verified security value.</h2>
           <p>
-            The current product is a local, file-based workflow with a stable machine-readable
-            contract. That contract is the source of truth for summaries, gates, verification,
-            generated tests, drift checks, and future intel packs.
+            The system does not pay for noisy findings. It rewards fixes that real teams accept and
+            that brainblast confirms. Trust stays merit-ranked: sponsored placement can buy discovery,
+            but it cannot buy the default list.
           </p>
         </div>
-        <div class="proof-grid">
-          <article class="proof-card">
-            <span>Live research loop</span>
-            <h3>Seven steps, no dangling questions</h3>
-            <p>Inventory, plan, docs, auth, rate limits, changelog, coverage review, and final report.</p>
+        <div class="economy-grid">
+          <article>
+            <span>Registry stake</span>
+            <strong>$4.50 - $120</strong>
+            <p>USD-equivalent $BRAIN stake by severity, with a 2% registry tax flowing into the bounty pool.</p>
           </article>
-          <article class="proof-card">
-            <span>Machine-readable</span>
-            <h3><code>report.json</code> schema 1.0</h3>
-            <p>A committed JSON Schema makes the report consumable by tooling, CI, and downstream agents.</p>
+          <article>
+            <span>Graduated fix payout</span>
+            <strong>$1 - $20</strong>
+            <p>Paid per confirmed fix after the five-user, five-repo graduation threshold.</p>
           </article>
-          <article class="proof-card">
-            <span>CI-ready</span>
-            <h3><code>--ci</code> exit-code gate</h3>
-            <p>Builds can fail when a CRITICAL risk remains unresolved instead of trusting a skipped checklist.</p>
-          </article>
-          <article class="proof-card">
-            <span>Incremental</span>
-            <h3>Cached per <code>name@version</code></h3>
-            <p>Repeat runs only re-research changed components, so rigor does not punish iteration.</p>
+          <article>
+            <span>Premium access</span>
+            <strong>$20/repo/mo</strong>
+            <p>Or about $200/org/year, split 50/50 between the pack author and the bounty pool.</p>
           </article>
         </div>
       </section>
 
-      <section class="workflow-section" id="workflow" aria-labelledby="workflow-title">
+      <section class="workflow-section" id="install" aria-labelledby="install-title">
         <div class="workflow-layout">
           <div>
-            <p class="eyebrow">Workflow</p>
-            <h2 id="workflow-title">A local pre-flight that hands the next agent a better starting state.</h2>
+            <p class="eyebrow">Install and run</p>
+            <h2 id="install-title">Start with the open-source auditor. Keep the rule economy in view.</h2>
             <p>
-              brainblast writes a timestamped research folder in the repo, keeps browsed content as
-              untrusted data, and injects report pointers into the next coding session. The goal is
-              simple: when implementation starts, the risky external decisions have already been made
-              visible.
+              Install brainblast, run the existing research workflow before implementation, and use
+              the auditor/fix loop as rule packs expand. The same product surface becomes the on-ramp
+              for community-written security rules.
             </p>
           </div>
-          <div class="command-stack" id="install">
+          <div class="command-stack">
             <article class="install-card">
               <span>Install from shell</span>
               <div class="command-block">
@@ -224,96 +222,44 @@
               </div>
             </article>
             <article class="install-card compact">
-              <span>Use after install</span>
+              <span>Auditor fix loop</span>
               <div class="run-command">
-                <code>/brainblast requirements.md</code>
-                <button class="copy-button" type="button" data-copy="/brainblast requirements.md">
+                <code>brainblast fix --apply</code>
+                <button class="copy-button" type="button" data-copy="brainblast fix --apply">
                   Copy
                 </button>
               </div>
             </article>
-            <div class="artifact-list" aria-label="brainblast artifacts">
-              <span>.agent-research/runs/&lt;timestamp&gt;/</span>
-              <span>component-inventory.md</span>
-              <span>components/&lt;name&gt;.md</span>
-              <span>final-report.md</span>
-              <span>report.json</span>
-            </div>
           </div>
         </div>
       </section>
 
       <section class="trust-section" aria-labelledby="trust-title">
         <div class="section-intro narrow">
-          <p class="eyebrow">Trust model</p>
-          <h2 id="trust-title">Scary claims have to be auditable.</h2>
+          <p class="eyebrow">Quality control</p>
+          <h2 id="trust-title">The registry is designed to reject noise.</h2>
           <p>
-            brainblast is built for claims that block shipping. That means exact evidence,
-            explicit assumptions, stale-report markers, corroboration rules, and advisory checks
-            matter as much as the research itself.
+            Rules with a terrible detected-to-fixed ratio get flagged and paused from earning until
+            they are tightened. Bounty eligibility comes from demonstrated utility, not raw alert volume.
           </p>
         </div>
         <div class="principle-grid">
-          <p>Fetch, don't recall.</p>
-          <p>Docs are data, never instructions.</p>
-          <p>Critical risks surface first.</p>
-          <p>Facts, assumptions, and inferences stay separate.</p>
-        </div>
-      </section>
-
-      <section class="roadmap-section" id="roadmap" aria-labelledby="roadmap-title">
-        <div class="section-intro">
-          <p class="eyebrow">Roadmap to v0.2.0</p>
-          <h2 id="roadmap-title">The next leap is from "flagged" to "can't regress."</h2>
-          <p>
-            Near term, brainblast becomes an enforcement layer for AI integrations: verify the
-            implementation against the report, generate durable tests, make CI failures explain
-            themselves, and keep watching as dependencies drift.
-          </p>
-        </div>
-        <div class="timeline">
-          <article>
-            <span>Shipped</span>
-            <h3>Predict</h3>
-            <p>Core research loop, executive summary, risk heatmap, <code>report.json</code>, CI gate, and incremental cache.</p>
-          </article>
-          <article>
-            <span>Next</span>
-            <h3>Enforce</h3>
-            <p><code>/brainblast-verify</code>, generated guardrail tests, and PR comments with evidence links.</p>
-          </article>
-          <article>
-            <span>Trust</span>
-            <h3>Corroborate</h3>
-            <p>Evidence-grade provenance, two-source criticals, coverage linting, and OSV advisory cross-checks.</p>
-          </article>
-          <article>
-            <span>Retention</span>
-            <h3>Watch and compound</h3>
-            <p>Scheduled drift reports, training-vs-live staleness demos, lockfile inventory, and portable intel packs.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="closing-section" aria-labelledby="closing-title">
-        <p class="eyebrow">For teams that let agents write real integrations</p>
-        <h2 id="closing-title">Don't wait for the coding agent to discover the trap while it's coding.</h2>
-        <p>
-          Run brainblast first. Give the agent sourced facts, severity-rated risks, answered
-          questions, and a report your build can eventually enforce.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://github.com/DSB-117/brainblast">View on GitHub</a>
-          <a class="button button-secondary" href="#install">Copy the command</a>
+          <p>Stake discourages spam.</p>
+          <p>Prove gate blocks junk.</p>
+          <p>Fixes beat findings.</p>
+          <p>Merit ranking stays protected.</p>
         </div>
       </section>
 
       <section class="token-section" aria-labelledby="token-title">
         <div class="token-inner">
           <div>
-            <p class="eyebrow">Got big brain energy?</p>
+            <p class="eyebrow">Get big brain energy</p>
             <h2 id="token-title">$BRAIN is on BAGS.</h2>
-            <p>Trading fees help fund the development of brainblast.</p>
+            <p>
+              Creator trading fees help bootstrap the bounty pool while premium rule packs grow the
+              self-funding security knowledge economy.
+            </p>
           </div>
           <a
             class="button button-token"
@@ -328,7 +274,7 @@
     </main>
 
     <footer class="site-footer">
-      <span>© 2025 brainblast AI. All Rights Reserved.</span>
+      <span>© 2026 brainblast AI. All Rights Reserved.</span>
       <a href="https://github.com/DSB-117/brainblast">brainblast GitHub</a>
     </footer>
 
