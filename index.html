@@ -76,7 +76,7 @@
             </div>
             <div class="signal-status">
               <span>fix loop</span>
-              <strong>fix --apply, then re-audit</strong>
+              <strong>npx brainblast fix . --apply</strong>
             </div>
           </aside>
         </div>
@@ -106,7 +106,7 @@
           <article>
             <span class="number">03</span>
             <h3>Fixes must prove out</h3>
-            <p><code>brainblast fix --apply</code> applies mechanical fixes and re-checks that the bug moved from RED to GREEN.</p>
+            <p><code>npx brainblast fix . --apply</code> applies mechanical fixes and re-checks that the bug moved from RED to GREEN.</p>
           </article>
         </div>
       </section>
@@ -180,8 +180,8 @@
             <p class="eyebrow">Install and run</p>
             <h2 id="install-title">Start with the open-source auditor. Keep the rule economy in view.</h2>
             <p>
-              Install brainblast, run the existing research workflow before implementation, and use
-              the auditor/fix loop as rule packs expand. The same product surface becomes the on-ramp
+              Install the v0.4.3 agent workflow, scan repos with the npm CLI, and use the
+              auditor/fix loop as rule packs expand. The same product surface becomes the on-ramp
               for community-written security rules.
             </p>
           </div>
@@ -194,11 +194,11 @@
                   <span></span>
                   <span></span>
                 </div>
-                <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.1.4/install.sh | sh</code>
+                <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh</code>
                 <button
                   class="copy-button"
                   type="button"
-                  data-copy="curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.1.4/install.sh | sh"
+                  data-copy="curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh"
                 >
                   Copy
                 </button>
@@ -209,23 +209,33 @@
               <div class="prompt-block">
                 <p>
                   Install brainblast by running:
-                  <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.1.4/install.sh | sh</code>
-                  Then run <code>/brainblast requirements.md</code> before implementation.
+                  <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh</code>
+                  Then run <code>/brainblast requirements.md</code> before implementation and
+                  <code>npx brainblast .</code> in CI to audit the code that got written.
                 </p>
                 <button
                   class="copy-button"
                   type="button"
-                  data-copy="Install brainblast by running: curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.1.4/install.sh | sh. Then run /brainblast requirements.md before implementation."
+                  data-copy="Install brainblast by running: curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh. Then run /brainblast requirements.md before implementation and npx brainblast . in CI to audit the code that got written."
                 >
                   Copy prompt
                 </button>
               </div>
             </article>
             <article class="install-card compact">
+              <span>Scan current repo</span>
+              <div class="run-command">
+                <code>npx brainblast .</code>
+                <button class="copy-button" type="button" data-copy="npx brainblast .">
+                  Copy
+                </button>
+              </div>
+            </article>
+            <article class="install-card compact">
               <span>Auditor fix loop</span>
               <div class="run-command">
-                <code>brainblast fix --apply</code>
-                <button class="copy-button" type="button" data-copy="brainblast fix --apply">
+                <code>npx brainblast fix . --apply</code>
+                <button class="copy-button" type="button" data-copy="npx brainblast fix . --apply">
                   Copy
                 </button>
               </div>
