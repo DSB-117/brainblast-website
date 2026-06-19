@@ -100,8 +100,8 @@ p {
 .site-header {
   align-items: center;
   backdrop-filter: blur(18px);
-  background: rgba(255, 255, 255, 0.96);
-  border-bottom: 1px solid rgba(130, 231, 255, 0.24);
+  background: rgba(5, 10, 20, 0.96);
+  border-bottom: 1px solid rgba(47, 200, 238, 0.15);
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr auto auto auto;
@@ -118,8 +118,8 @@ p {
 }
 
 .site-header.is-scrolled {
-  background: #fff;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  background: rgba(5, 10, 20, 0.99);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
 .brand-mark {
@@ -130,7 +130,7 @@ p {
 
 .brand-mark img {
   display: block;
-  height: 38px;
+  height: 44px;
   object-fit: contain;
   width: auto;
 }
@@ -143,14 +143,14 @@ p {
 
 .desktop-nav a,
 .mobile-nav a {
-  color: #4d5b72;
+  color: rgba(220, 235, 255, 0.7);
   font-size: 0.9rem;
   font-weight: 850;
 }
 
 .desktop-nav a:hover,
 .mobile-nav a:hover {
-  color: #091225;
+  color: #fff;
 }
 
 .header-cta,
@@ -171,13 +171,15 @@ p {
 }
 
 .header-cta {
-  background: #090f21;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--white);
   padding: 0 18px;
 }
 
 .header-cta-app {
   background: linear-gradient(135deg, var(--cyan), var(--blue));
+  border: none;
   color: #041021;
 }
 
@@ -212,7 +214,7 @@ p {
 }
 
 .menu-button span {
-  background: #091225;
+  background: rgba(220, 235, 255, 0.85);
   display: block;
   height: 2px;
   margin: 7px auto;
@@ -220,8 +222,8 @@ p {
 }
 
 .mobile-nav {
-  background: rgba(255, 255, 255, 0.98);
-  border-bottom: 1px solid rgba(130, 231, 255, 0.24);
+  background: rgba(5, 10, 20, 0.99);
+  border-bottom: 1px solid rgba(47, 200, 238, 0.15);
   display: none;
   left: 0;
   padding: 88px 24px 24px;
