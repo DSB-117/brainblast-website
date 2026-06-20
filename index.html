@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="brainblast is an open-source security auditor and rule-pack economy that turns proven security knowledge into deterministic checks, fixes, and $BRAIN rewards."
+      content="Brainblast researches every external API before your agent codes it, then enforces the same rules in CI — permanently. Catch silent, irreversible integration failures before they ship."
     />
-    <title>brainblast | Security knowledge economy powered by $BRAIN</title>
+    <title>brainblast — Research first. Enforce always.</title>
     <link rel="icon" href="assets/icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/icon.png" />
     <link rel="preload" href="assets/logo_large.png" as="image" />
-    <link rel="preload" href="assets/brainblast.jpg" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -20,9 +19,9 @@
         <img src="assets/logo_large.png" alt="brainblast" />
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#auditor">Auditor</a>
-        <a href="#flywheel">Flywheel</a>
-        <a href="#economy">Economy</a>
+        <a href="#research">Research</a>
+        <a href="#enforce">Enforce</a>
+        <a href="#example">Example</a>
         <a href="#install">Install</a>
       </nav>
       <a class="header-cta header-cta-app" href="https://app.brainblast.tech" target="_blank" rel="noopener">App</a>
@@ -34,256 +33,261 @@
     </header>
 
     <nav class="mobile-nav" data-mobile-nav aria-label="Mobile navigation">
-      <a href="#auditor">Auditor</a>
-      <a href="#flywheel">Flywheel</a>
-      <a href="#economy">Economy</a>
+      <a href="#research">Research</a>
+      <a href="#enforce">Enforce</a>
+      <a href="#example">Example</a>
       <a href="#install">Install</a>
       <a href="https://app.brainblast.tech" target="_blank" rel="noopener">App</a>
       <a href="https://github.com/DSB-117/brainblast">GitHub</a>
     </nav>
 
     <main id="top">
+
+      <!-- ── HERO ── -->
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
-          <img src="assets/brainblast.jpg" alt="" />
-        </div>
-        <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-inner">
-          <div class="hero-copy">
-            <p class="eyebrow">Open-source security auditor</p>
-            <h1 id="hero-title">Security knowledge that proves itself in code.</h1>
-            <p class="hero-lede">
-              brainblast runs deterministic checks against codebases, applies mechanical fixes for
-              confirmed issues, and is opening a rule-pack economy where experts earn $BRAIN when
-              their security knowledge helps real teams fix real bugs.
+          <p class="label">Two-part tool for AI agent integrations</p>
+          <h1 id="hero-title">Research first.<br>Enforce always.</h1>
+          <p class="hero-lede">
+            Brainblast catches the silent, irreversible failures AI agents ship when integrating external APIs and SDKs — before a single line is written, and permanently after.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#install">Install brainblast →</a>
+            <a class="btn-text" href="#research">See how it works ↓</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── THE PROBLEM ── -->
+      <section class="pain" aria-label="The problem">
+        <div class="pain-inner">
+          <div class="pain-item">
+            <span class="pain-num">01</span>
+            <h3>Silent failures</h3>
+            <p>Your agent codes from training data. APIs change. Wrong assumptions about auth flows, rate limits, and required fields ship without warning.</p>
+          </div>
+          <div class="pain-item">
+            <span class="pain-num">02</span>
+            <h3>Irreversible decisions</h3>
+            <p>Some misconfigs — fee-share arrays, metadata mutability, program IDs — cannot be fixed post-deploy. You find out at the worst possible moment.</p>
+          </div>
+          <div class="pain-item">
+            <span class="pain-num">03</span>
+            <h3>Stale training data</h3>
+            <p>The model knows the API as it was 18 months ago. Every changelog since then is your silent bug surface and your attack surface.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PART ONE: /brainblast ── -->
+      <section class="part" id="research" aria-labelledby="research-title">
+        <div class="part-inner">
+          <div class="part-tag">
+            <p class="label">Part one<br>Research</p>
+          </div>
+          <div class="part-content">
+            <h2 id="research-title">/brainblast</h2>
+            <p class="part-sub">
+              Runs inside your coding agent. Reads your requirements file, identifies every external component — APIs, SDKs, auth providers, payment processors, chains — browses official live documentation for each one, and produces a sourced research report before any code is written. Every fact traces to a URL fetched during the run. Never training data.
             </p>
-            <div class="hero-actions" aria-label="Primary actions">
-              <a class="button button-primary" href="#install">Run brainblast</a>
-              <a class="button button-secondary" href="#flywheel">See the $BRAIN flywheel</a>
+
+            <p class="label">Key behaviors</p>
+            <ul class="capability-list">
+              <li>Builds a per-component source plan: docs, registry, changelog, rate limits, auth flows</li>
+              <li>Browses official live URLs for each component — stale knowledge is explicitly flagged</li>
+              <li>Answers every open question from a live source, or marks it explicitly unresolvable</li>
+              <li>Reviews its own coverage and flags gaps before finishing</li>
+              <li>Re-reads requirements against research — catches wrong assumptions before they're coded</li>
+              <li>Flags immutable-after-deploy decisions before a single line exists</li>
+              <li>Prompt-injection resistant — browsed content is treated as data, never instructions</li>
+              <li>Caches per name@version — only re-researches what changed between runs</li>
+              <li>Auto-injects a report pointer into CLAUDE.md / AGENTS.md for the next session</li>
+            </ul>
+
+            <p class="label">Output</p>
+            <div class="output-callout">
+              <div class="output-row">
+                <code>final-report.md</code>
+                <span>Executive Summary, Risk Heatmap, per-component deep-dives with sourced findings</span>
+              </div>
+              <div class="output-row">
+                <code>report.json</code>
+                <span>Machine-readable structured output, for CI gates and downstream tooling</span>
+              </div>
+            </div>
+
+            <p class="label">Usage</p>
+            <div class="cmd-block">
+              <code>/brainblast requirements.md</code>
+              <button class="copy-btn" type="button" data-copy="/brainblast requirements.md">Copy</button>
             </div>
           </div>
-
-          <aside class="signal-panel" aria-label="brainblast security signal">
-            <div class="panel-topline">
-              <span>v0.4.3</span>
-              <strong>RED -&gt; GREEN</strong>
-            </div>
-            <div class="signal-risk">
-              <span>detect</span>
-              <p>Find leaked secrets, unverified webhooks, auth bypasses, command injection, and protocol-specific traps.</p>
-            </div>
-            <div class="signal-evidence">
-              <span>trace</span>
-              <p>Project-wide taint tracking follows sensitive data across files until it reaches a dangerous sink.</p>
-            </div>
-            <div class="signal-status">
-              <span>fix loop</span>
-              <strong>npx brainblast fix . --apply</strong>
-            </div>
-          </aside>
         </div>
       </section>
 
-      <section class="problem-section" id="auditor" aria-labelledby="auditor-title">
-        <div class="section-intro">
-          <p class="eyebrow">Deterministic by design</p>
-          <h2 id="auditor-title">No hallucinated security theater. Checks that know what failure looks like.</h2>
-          <p>
-            brainblast is a tireless reviewer for codebases. It does not merely suggest that
-            something might be wrong. It runs concrete rules, points to the exact location, and
-            tells you how to fix the issue before it ships.
-          </p>
-        </div>
-        <div class="problem-grid">
-          <article>
-            <span class="number">01</span>
-            <h3>Real exploit classes</h3>
-            <p>Stripe webhook verification, JWT auth bypasses, command injection, secret leaks, and Solana misconfigurations.</p>
-          </article>
-          <article>
-            <span class="number">02</span>
-            <h3>Project-wide taint tracking</h3>
-            <p>Follow a secret from an environment variable across files and functions into logs, responses, or other unsafe sinks.</p>
-          </article>
-          <article>
-            <span class="number">03</span>
-            <h3>Fixes must prove out</h3>
-            <p><code>npx brainblast fix . --apply</code> applies mechanical fixes and re-checks that the bug moved from RED to GREEN.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="flywheel-section" id="flywheel" aria-labelledby="flywheel-title">
-        <div class="section-intro narrow">
-          <p class="eyebrow">$BRAIN flywheel</p>
-          <h2 id="flywheel-title">A marketplace for security knowledge, paid only when it works.</h2>
-          <p>
-            The people who know a protocol's footguns are rarely the people maintaining a
-            general-purpose scanner. brainblast flips that: domain experts publish rule packs,
-            users unlock premium packs, and $BRAIN moves value toward rules that produce confirmed fixes.
-          </p>
-        </div>
-        <div class="flywheel-orbit" aria-label="$BRAIN rule pack flywheel">
-          <article>
-            <span>1</span>
-            <h3>Stake to publish</h3>
-            <p>Rule authors stake $BRAIN to list packs. Severity sets the deposit size, and every pack must pass the prove gate first.</p>
-          </article>
-          <article>
-            <span>2</span>
-            <h3>Prove RED -&gt; GREEN</h3>
-            <p>A pack has to catch its own test cases before entering the registry. Junk rules do not get a free lane.</p>
-          </article>
-          <article>
-            <span>3</span>
-            <h3>Earn on fixes</h3>
-            <p>Rules become bounty-eligible only after five users, on five repos, accept a working <code>fix --apply</code>.</p>
-          </article>
-          <article>
-            <span>4</span>
-            <h3>Compound the pool</h3>
-            <p>Premium pack payments split between authors and the bounty pool, so useful security knowledge funds more useful rules.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="economy-section" id="economy" aria-labelledby="economy-title">
-        <div class="economy-copy">
-          <p class="eyebrow">Security knowledge economy</p>
-          <h2 id="economy-title">$BRAIN is the unit of account for verified security value.</h2>
-          <p>
-            The system does not pay for noisy findings. It rewards fixes that real teams accept and
-            that brainblast confirms. Trust stays merit-ranked: sponsored placement can buy discovery,
-            but it cannot buy the default list.
-          </p>
-        </div>
-        <div class="economy-grid">
-          <article>
-            <span>Registry stake</span>
-            <strong>$4.50 - $120</strong>
-            <p>USD-equivalent $BRAIN stake by severity, with a 2% registry tax flowing into the bounty pool.</p>
-          </article>
-          <article>
-            <span>Graduated fix payout</span>
-            <strong>$1 - $20</strong>
-            <p>Paid per confirmed fix after the five-user, five-repo graduation threshold.</p>
-          </article>
-          <article>
-            <span>Premium access</span>
-            <strong>$20/repo/mo</strong>
-            <p>Or about $200/org/year, split 50/50 between the pack author and the bounty pool.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="workflow-section" id="install" aria-labelledby="install-title">
-        <div class="workflow-layout">
-          <div>
-            <p class="eyebrow">Install and run</p>
-            <h2 id="install-title">Start with the open-source auditor. Keep the rule economy in view.</h2>
-            <p>
-              Install the v0.4.3 agent workflow, scan repos with the npm CLI, and use the
-              auditor/fix loop as rule packs expand. The same product surface becomes the on-ramp
-              for community-written security rules.
-            </p>
+      <!-- ── PART TWO: npx brainblast ── -->
+      <section class="part" id="enforce" aria-labelledby="enforce-title">
+        <div class="part-inner">
+          <div class="part-tag">
+            <p class="label">Part two<br>Enforce</p>
           </div>
-          <div class="command-stack">
-            <article class="install-card">
-              <span>Install from shell</span>
-              <div class="command-block">
-                <div class="terminal-controls" aria-hidden="true">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+          <div class="part-content">
+            <h2 id="enforce-title">npx brainblast</h2>
+            <p class="part-sub">
+              Offline, zero-LLM static scanner. Runs in CI. Enforces the same traps surfaced during research — permanently, on every push. Fixed bugs can't silently regress. Pluggable community rule packs must pass a RED→GREEN prove gate before submission.
+            </p>
+
+            <p class="label">12 bundled rules</p>
+            <ul class="rule-list">
+              <li>Stripe webhook raw-body signature verification</li>
+              <li>Privy / JWT signature + aud/iss verification</li>
+              <li>Bags / Solana fee-share creator inclusion</li>
+              <li>Token-2022 program-ID pinning</li>
+              <li>Metaplex metadata immutability</li>
+              <li>Anchor init_if_needed guards</li>
+              <li>Committed .env* secrets</li>
+              <li>Cross-file taint: secret leaks</li>
+              <li>Cross-file taint: command injection</li>
+              <li>Cross-file taint: SQL injection (Prisma)</li>
+              <li>Cross-file taint: open redirect</li>
+              <li>Cross-file taint: JWT algorithm confusion</li>
+            </ul>
+
+            <p class="label">Additional commands</p>
+            <div class="command-grid">
+              <div class="command-item">
+                <code>brainblast diff</code>
+                <span>OSV advisory risk comparison between package versions</span>
+              </div>
+              <div class="command-item">
+                <code>brainblast drift</code>
+                <span>Weekly advisory scan with baseline diffing</span>
+              </div>
+              <div class="command-item">
+                <code>brainblast fix --apply</code>
+                <span>Mechanical auto-fix for confirmed FAILs</span>
+              </div>
+              <div class="command-item">
+                <code>brainblast trust-graph</code>
+                <span>Solana program upgrade-authority resolution</span>
+              </div>
+              <div class="command-item">
+                <code>brainblast mcp</code>
+                <span>stdio MCP server for direct agent integration</span>
+              </div>
+            </div>
+
+            <p class="label">Scan your repo</p>
+            <div class="cmd-block">
+              <code>npx brainblast .</code>
+              <button class="copy-btn" type="button" data-copy="npx brainblast .">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── REAL EXAMPLE ── -->
+      <section class="example" id="example" aria-labelledby="example-title">
+        <div class="example-inner">
+          <div class="example-copy">
+            <p class="label">Real example</p>
+            <h2 id="example-title">Silent.<br>Permanent.<br>Zero revenue.</h2>
+            <p>The Bags API (Solana token launch) requires the creator wallet address in the fee-share array at deploy time. Omit it and the token goes live earning 0% of all trading fees — forever. No on-chain path to fix it post-deploy.</p>
+            <p>Brainblast caught this before a single line was written. The same rule now gates every CI run — it can never silently regress.</p>
+          </div>
+          <div class="example-card" aria-label="Example finding">
+            <p class="example-card-status">Misconfiguration caught pre-code</p>
+            <h3>bags / solana fee-share array</h3>
+            <p class="example-finding">
+              Creator wallet address absent from fee-share array at deploy time. Token goes live with creator earning 0% of all trading fees permanently. No upgrade path exists post-deploy. This decision is immutable once the transaction is confirmed on-chain.
+            </p>
+            <p class="example-verdict">↳ Caught before first line written</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── WORKS EVERYWHERE ── -->
+      <section class="compat" aria-label="Compatibility">
+        <div class="compat-inner">
+          <p class="label">Works everywhere</p>
+          <h2>One install.<br>Every agent.</h2>
+          <div class="compat-grid" role="list">
+            <div class="compat-item" role="listitem">Claude Code</div>
+            <div class="compat-item" role="listitem">OpenClaw</div>
+            <div class="compat-item" role="listitem">Codex</div>
+            <div class="compat-item" role="listitem">Any agent with web access</div>
+          </div>
+          <p class="compat-note">
+            SHA-256 verified install. Prompt-injection resistant — browsed content is treated as data, never instructions; adversarial doc content is quoted and flagged, not executed. GitHub Action for automated PR comments. Pluggable community rule packs — packs must pass a RED→GREEN prove gate before registry submission.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── INSTALL ── -->
+      <section class="install" id="install" aria-labelledby="install-title">
+        <div class="install-inner">
+          <p class="label">Get started</p>
+          <h2 id="install-title">Three steps.</h2>
+
+          <div class="step">
+            <span class="step-label">01 — Install</span>
+            <div>
+              <h3>Add the research skill to your agent</h3>
+              <p>Installs /brainblast into your coding agent. SHA-256 verified. Works with Claude Code, OpenClaw, Codex, and any agent with web access.</p>
+              <div class="cmd-block">
                 <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh</code>
-                <button
-                  class="copy-button"
-                  type="button"
-                  data-copy="curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh"
-                >
-                  Copy
-                </button>
+                <button class="copy-btn" type="button" data-copy="curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh">Copy</button>
               </div>
-            </article>
-            <article class="install-card">
-              <span>Tell your AI agent</span>
-              <div class="prompt-block">
-                <p>
-                  Install brainblast by running:
-                  <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh</code>
-                  Then run <code>/brainblast requirements.md</code> before implementation and
-                  <code>npx brainblast .</code> in CI to audit the code that got written.
-                </p>
-                <button
-                  class="copy-button"
-                  type="button"
-                  data-copy="Install brainblast by running: curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh. Then run /brainblast requirements.md before implementation and npx brainblast . in CI to audit the code that got written."
-                >
-                  Copy prompt
-                </button>
-              </div>
-            </article>
-            <article class="install-card compact">
-              <span>Scan current repo</span>
-              <div class="run-command">
-                <code>npx brainblast .</code>
-                <button class="copy-button" type="button" data-copy="npx brainblast .">
-                  Copy
-                </button>
-              </div>
-            </article>
-            <article class="install-card compact">
-              <span>Auditor fix loop</span>
-              <div class="run-command">
-                <code>npx brainblast fix . --apply</code>
-                <button class="copy-button" type="button" data-copy="npx brainblast fix . --apply">
-                  Copy
-                </button>
-              </div>
-            </article>
+            </div>
           </div>
+
+          <div class="step">
+            <span class="step-label">02 — Research</span>
+            <div>
+              <h3>Run before your agent writes a line</h3>
+              <p>Point it at your requirements file. It identifies every external component, browses their live docs, surfaces immutable-after-deploy decisions, and returns a sourced report.</p>
+              <div class="cmd-block">
+                <code>/brainblast requirements.md</code>
+                <button class="copy-btn" type="button" data-copy="/brainblast requirements.md">Copy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="step-label">03 — Enforce</span>
+            <div>
+              <h3>Gate CI permanently</h3>
+              <p>The offline CLI auditor runs the same rules on every push. Fixed bugs can't silently regress. Outputs RED / GREEN per rule with exact file and line.</p>
+              <div class="cmd-block">
+                <code>npx brainblast .</code>
+                <button class="copy-btn" type="button" data-copy="npx brainblast .">Copy</button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <section class="trust-section" aria-labelledby="trust-title">
-        <div class="section-intro narrow">
-          <p class="eyebrow">Quality control</p>
-          <h2 id="trust-title">The registry is designed to reject noise.</h2>
-          <p>
-            Rules with a terrible detected-to-fixed ratio get flagged and paused from earning until
-            they are tightened. Bounty eligibility comes from demonstrated utility, not raw alert volume.
-          </p>
-        </div>
-        <div class="principle-grid">
-          <p>Stake discourages spam.</p>
-          <p>Prove gate blocks junk.</p>
-          <p>Fixes beat findings.</p>
-          <p>Merit ranking stays protected.</p>
-        </div>
-      </section>
-
+      <!-- ── $BRAIN TOKEN ── -->
       <section class="token-section" aria-labelledby="token-title">
         <div class="token-inner">
-          <div>
-            <p class="eyebrow">Get big brain energy</p>
-            <h2 id="token-title">$BRAIN is on Pump.fun.</h2>
-            <p>
-              Creator trading fees help bootstrap the bounty pool while premium rule packs grow the
-              self-funding security knowledge economy.
-            </p>
-            <p>CA: 7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump</p>
+          <div class="token-copy">
+            <p class="label">$BRAIN token</p>
+            <h2 id="token-title">Funding brainblast<br>development.</h2>
+            <p>Community trading fees help support ongoing development and the expansion of the rule library.</p>
+            <p class="token-ca">CA: 7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump</p>
           </div>
           <a
-            class="button button-token"
+            class="btn-token"
             href="https://pump.fun/coin/7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump"
             target="_blank"
             rel="noreferrer"
           >
-            Get $BRAIN
+            Get $BRAIN ↗
           </a>
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">
