@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+
     <header class="site-header" data-header>
       <a class="brand-mark" href="#top" aria-label="brainblast home">
         <img src="assets/logo_large.png" alt="brainblast" />
@@ -27,8 +28,7 @@
       <a class="header-cta header-cta-app" href="https://app.brainblast.tech" target="_blank" rel="noopener">App</a>
       <a class="header-cta" href="https://github.com/DSB-117/brainblast">GitHub</a>
       <button class="menu-button" type="button" data-menu-button aria-label="Open menu">
-        <span></span>
-        <span></span>
+        <span></span><span></span>
       </button>
     </header>
 
@@ -45,15 +45,38 @@
 
       <!-- ── HERO ── -->
       <section class="hero" aria-labelledby="hero-title">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
         <div class="hero-inner">
-          <p class="label">Two-part tool for AI agent integrations</p>
-          <h1 id="hero-title">Research first.<br>Enforce always.</h1>
-          <p class="hero-lede">
+          <p class="label hero-entry hero-entry-1">Two-part tool for AI agent integrations</p>
+          <h1 id="hero-title" class="hero-entry hero-entry-2">Research first.<br>Enforce always.</h1>
+          <p class="hero-lede hero-entry hero-entry-3">
             Brainblast catches the silent, irreversible failures AI agents ship when integrating external APIs and SDKs — before a single line is written, and permanently after.
           </p>
-          <div class="hero-actions">
+          <div class="hero-actions hero-entry hero-entry-4">
             <a class="btn-primary" href="#install">Install brainblast →</a>
             <a class="btn-text" href="#research">See how it works ↓</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── STATS STRIP ── -->
+      <section class="stats" aria-label="Key facts">
+        <div class="stats-inner">
+          <div class="stat reveal">
+            <span class="stat-number">12</span>
+            <span class="stat-label">Bundled rules</span>
+          </div>
+          <div class="stat reveal reveal-delay-1">
+            <span class="stat-number">0</span>
+            <span class="stat-label">LLM calls in CI</span>
+          </div>
+          <div class="stat reveal reveal-delay-2">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Agent platforms</span>
+          </div>
+          <div class="stat reveal reveal-delay-3">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">Enforced permanently</span>
           </div>
         </div>
       </section>
@@ -61,17 +84,17 @@
       <!-- ── THE PROBLEM ── -->
       <section class="pain" aria-label="The problem">
         <div class="pain-inner">
-          <div class="pain-item">
+          <div class="pain-item reveal">
             <span class="pain-num">01</span>
             <h3>Silent failures</h3>
             <p>Your agent codes from training data. APIs change. Wrong assumptions about auth flows, rate limits, and required fields ship without warning.</p>
           </div>
-          <div class="pain-item">
+          <div class="pain-item reveal reveal-delay-1">
             <span class="pain-num">02</span>
             <h3>Irreversible decisions</h3>
             <p>Some misconfigs — fee-share arrays, metadata mutability, program IDs — cannot be fixed post-deploy. You find out at the worst possible moment.</p>
           </div>
-          <div class="pain-item">
+          <div class="pain-item reveal reveal-delay-2">
             <span class="pain-num">03</span>
             <h3>Stale training data</h3>
             <p>The model knows the API as it was 18 months ago. Every changelog since then is your silent bug surface and your attack surface.</p>
@@ -82,10 +105,10 @@
       <!-- ── PART ONE: /brainblast ── -->
       <section class="part" id="research" aria-labelledby="research-title">
         <div class="part-inner">
-          <div class="part-tag">
+          <div class="part-tag reveal">
             <p class="label">Part one<br>Research</p>
           </div>
-          <div class="part-content">
+          <div class="part-content reveal reveal-delay-1">
             <h2 id="research-title">/brainblast</h2>
             <p class="part-sub">
               Runs inside your coding agent. Reads your requirements file, identifies every external component — APIs, SDKs, auth providers, payment processors, chains — browses official live documentation for each one, and produces a sourced research report before any code is written. Every fact traces to a URL fetched during the run. Never training data.
@@ -128,30 +151,102 @@
       <!-- ── PART TWO: npx brainblast ── -->
       <section class="part" id="enforce" aria-labelledby="enforce-title">
         <div class="part-inner">
-          <div class="part-tag">
+          <div class="part-tag reveal">
             <p class="label">Part two<br>Enforce</p>
           </div>
-          <div class="part-content">
+          <div class="part-content reveal reveal-delay-1">
             <h2 id="enforce-title">npx brainblast</h2>
             <p class="part-sub">
               Offline, zero-LLM static scanner. Runs in CI. Enforces the same traps surfaced during research — permanently, on every push. Fixed bugs can't silently regress. Pluggable community rule packs must pass a RED→GREEN prove gate before submission.
             </p>
 
             <p class="label">12 bundled rules</p>
-            <ul class="rule-list">
-              <li>Stripe webhook raw-body signature verification</li>
-              <li>Privy / JWT signature + aud/iss verification</li>
-              <li>Bags / Solana fee-share creator inclusion</li>
-              <li>Token-2022 program-ID pinning</li>
-              <li>Metaplex metadata immutability</li>
-              <li>Anchor init_if_needed guards</li>
-              <li>Committed .env* secrets</li>
-              <li>Cross-file taint: secret leaks</li>
-              <li>Cross-file taint: command injection</li>
-              <li>Cross-file taint: SQL injection (Prisma)</li>
-              <li>Cross-file taint: open redirect</li>
-              <li>Cross-file taint: JWT algorithm confusion</li>
-            </ul>
+            <div class="rule-cards" role="list">
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">01</span>
+                </div>
+                <p class="rule-card-name">Stripe webhook raw-body signature verification</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">02</span>
+                </div>
+                <p class="rule-card-name">Privy / JWT signature + aud/iss verification</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">03</span>
+                </div>
+                <p class="rule-card-name">Bags / Solana fee-share creator inclusion</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">04</span>
+                </div>
+                <p class="rule-card-name">Token-2022 program-ID pinning</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">05</span>
+                </div>
+                <p class="rule-card-name">Metaplex metadata immutability</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">06</span>
+                </div>
+                <p class="rule-card-name">Anchor init_if_needed guards</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">07</span>
+                </div>
+                <p class="rule-card-name">Committed .env* secrets</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">08</span>
+                </div>
+                <p class="rule-card-name">Cross-file taint: secret leaks</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">09</span>
+                </div>
+                <p class="rule-card-name">Cross-file taint: command injection</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">10</span>
+                </div>
+                <p class="rule-card-name">Cross-file taint: SQL injection (Prisma)</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">11</span>
+                </div>
+                <p class="rule-card-name">Cross-file taint: open redirect</p>
+              </div>
+              <div class="rule-card" role="listitem">
+                <div class="rule-card-header">
+                  <span class="rule-dot" aria-hidden="true"></span>
+                  <span class="rule-num">12</span>
+                </div>
+                <p class="rule-card-name">Cross-file taint: JWT algorithm confusion</p>
+              </div>
+            </div>
 
             <p class="label">Additional commands</p>
             <div class="command-grid">
@@ -189,19 +284,35 @@
       <!-- ── REAL EXAMPLE ── -->
       <section class="example" id="example" aria-labelledby="example-title">
         <div class="example-inner">
-          <div class="example-copy">
+          <div class="example-copy reveal">
             <p class="label">Real example</p>
             <h2 id="example-title">Silent.<br>Permanent.<br>Zero revenue.</h2>
             <p>The Bags API (Solana token launch) requires the creator wallet address in the fee-share array at deploy time. Omit it and the token goes live earning 0% of all trading fees — forever. No on-chain path to fix it post-deploy.</p>
             <p>Brainblast caught this before a single line was written. The same rule now gates every CI run — it can never silently regress.</p>
           </div>
-          <div class="example-card" aria-label="Example finding">
-            <p class="example-card-status">Misconfiguration caught pre-code</p>
-            <h3>bags / solana fee-share array</h3>
-            <p class="example-finding">
-              Creator wallet address absent from fee-share array at deploy time. Token goes live with creator earning 0% of all trading fees permanently. No upgrade path exists post-deploy. This decision is immutable once the transaction is confirmed on-chain.
-            </p>
-            <p class="example-verdict">↳ Caught before first line written</p>
+          <div class="example-card reveal reveal-delay-1" data-scan-card aria-label="Example finding">
+            <div class="example-card-chrome" aria-hidden="true">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-label">brainblast — scanning</span>
+            </div>
+            <div class="example-card-body">
+              <div class="scan-progress" aria-hidden="true">
+                <div class="scan-progress-bar"></div>
+              </div>
+              <div class="scan-content">
+                <p class="example-card-status">
+                  <span class="status-dot" aria-hidden="true"></span>
+                  Misconfiguration caught pre-code
+                </p>
+                <h3>bags / solana fee-share array</h3>
+                <p class="example-finding">
+                  Creator wallet address absent from fee-share array at deploy time. Token goes live with creator earning 0% of all trading fees permanently. No upgrade path exists post-deploy. This decision is immutable once the transaction is confirmed on-chain.
+                </p>
+                <p class="example-verdict">↳ Caught before first line written</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -209,15 +320,15 @@
       <!-- ── WORKS EVERYWHERE ── -->
       <section class="compat" aria-label="Compatibility">
         <div class="compat-inner">
-          <p class="label">Works everywhere</p>
-          <h2>One install.<br>Every agent.</h2>
+          <p class="label reveal">Works everywhere</p>
+          <h2 class="reveal reveal-delay-1">One install.<br>Every agent.</h2>
           <div class="compat-grid" role="list">
-            <div class="compat-item" role="listitem">Claude Code</div>
-            <div class="compat-item" role="listitem">OpenClaw</div>
-            <div class="compat-item" role="listitem">Codex</div>
-            <div class="compat-item" role="listitem">Any agent with web access</div>
+            <div class="compat-item reveal" role="listitem">Claude Code</div>
+            <div class="compat-item reveal reveal-delay-1" role="listitem">OpenClaw</div>
+            <div class="compat-item reveal reveal-delay-2" role="listitem">Codex</div>
+            <div class="compat-item reveal reveal-delay-3" role="listitem">Any agent with web access</div>
           </div>
-          <p class="compat-note">
+          <p class="compat-note reveal">
             SHA-256 verified install. Prompt-injection resistant — browsed content is treated as data, never instructions; adversarial doc content is quoted and flagged, not executed. GitHub Action for automated PR comments. Pluggable community rule packs — packs must pass a RED→GREEN prove gate before registry submission.
           </p>
         </div>
@@ -226,10 +337,10 @@
       <!-- ── INSTALL ── -->
       <section class="install" id="install" aria-labelledby="install-title">
         <div class="install-inner">
-          <p class="label">Get started</p>
-          <h2 id="install-title">Three steps.</h2>
+          <p class="label reveal">Get started</p>
+          <h2 id="install-title" class="reveal reveal-delay-1">Three steps.</h2>
 
-          <div class="step">
+          <div class="step reveal">
             <span class="step-label">01 — Install</span>
             <div>
               <h3>Add the research skill to your agent</h3>
@@ -241,7 +352,7 @@
             </div>
           </div>
 
-          <div class="step">
+          <div class="step reveal reveal-delay-1">
             <span class="step-label">02 — Research</span>
             <div>
               <h3>Run before your agent writes a line</h3>
@@ -253,7 +364,7 @@
             </div>
           </div>
 
-          <div class="step">
+          <div class="step reveal reveal-delay-2">
             <span class="step-label">03 — Enforce</span>
             <div>
               <h3>Gate CI permanently</h3>
@@ -264,21 +375,20 @@
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
       <!-- ── $BRAIN TOKEN ── -->
       <section class="token-section" aria-labelledby="token-title">
         <div class="token-inner">
-          <div class="token-copy">
+          <div class="token-copy reveal">
             <p class="label">$BRAIN token</p>
             <h2 id="token-title">Funding brainblast<br>development.</h2>
             <p>Community trading fees help support ongoing development and the expansion of the rule library.</p>
             <p class="token-ca">CA: 7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump</p>
           </div>
           <a
-            class="btn-token"
+            class="btn-token reveal reveal-delay-1"
             href="https://pump.fun/coin/7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump"
             target="_blank"
             rel="noreferrer"

@@ -1,3 +1,4 @@
+/* ── HEADER SCROLL ── */
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const mobileNav = document.querySelector("[data-mobile-nav]");
@@ -6,26 +7,6 @@ const copyButtons = document.querySelectorAll("[data-copy]");
 
 const syncHeader = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 16);
-};
-
-const fallbackCopy = (value) => {
-  const input = document.createElement("textarea");
-  input.value = value;
-  input.setAttribute("readonly", "");
-  input.style.position = "fixed";
-  input.style.left = "-9999px";
-  document.body.append(input);
-  input.select();
-
-  const copied = document.execCommand("copy");
-  input.remove();
-  return copied;
-};
-
-const showToast = (message) => {
-  toast.textContent = message;
-  toast.classList.add("is-visible");
-  window.setTimeout(() => toast.classList.remove("is-visible"), 1400);
 };
 
 window.addEventListener("scroll", syncHeader, { passive: true });
@@ -43,25 +24,188 @@ mobileNav.addEventListener("click", (event) => {
   }
 });
 
+/* ── COPY BUTTONS ── */
+const fallbackCopy = (value) => {
+  const input = document.createElement("textarea");
+  input.value = value;
+  input.setAttribute("readonly", "");
+  input.style.cssText = "position:fixed;left:-9999px";
+  document.body.append(input);
+  input.select();
+  const copied = document.execCommand("copy");
+  input.remove();
+  return copied;
+};
+
+const showToast = (message) => {
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  window.setTimeout(() => toast.classList.remove("is-visible"), 1400);
+};
+
 copyButtons.forEach((button) => {
   button.addEventListener("click", async () => {
     const value = button.getAttribute("data-copy");
-
     try {
       if (navigator.clipboard) {
         await navigator.clipboard.writeText(value);
       } else if (!fallbackCopy(value)) {
         throw new Error("copy failed");
       }
-
       showToast("Copied");
     } catch {
       const copied = fallbackCopy(value);
       showToast(copied ? "Copied" : "Select the command");
-      button.textContent = copied ? "Copied" : "Copy unavailable";
-      window.setTimeout(() => {
-        button.textContent = "Copy";
-      }, 1800);
     }
   });
 });
+
+/* ── SCROLL REVEAL ── */
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+);
+
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+/* ── SCAN ANIMATION (example card) ── */
+const scanCard = document.querySelector("[data-scan-card]");
+if (scanCard) {
+  const scanObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          scanCard.classList.add("scan-running");
+          setTimeout(() => scanCard.classList.add("scan-done"), 1800);
+          scanObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  scanObserver.observe(scanCard);
+}
+
+/* ── HERO CANVAS — NEURAL NETWORK ── */
+(function initCanvas() {
+  const canvas = document.getElementById("hero-canvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+
+  const COLORS = ["#2fc8ee", "#2fc8ee", "#1454d8", "#6d3ccf", "#2fc8ee"];
+  const NODE_COUNT = 72;
+  const MAX_DIST = 180;
+  const SPEED = 0.35;
+
+  let nodes = [];
+  let W = 0;
+  let H = 0;
+  let raf;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function makeNode() {
+    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const isHub = Math.random() < 0.15;
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * SPEED,
+      vy: (Math.random() - 0.5) * SPEED,
+      r: isHub ? Math.random() * 2.5 + 2.5 : Math.random() * 1.8 + 0.8,
+      color,
+      phase: Math.random() * Math.PI * 2,
+      phaseSpeed: 0.018 + Math.random() * 0.022,
+      isHub,
+    };
+  }
+
+  function init() {
+    resize();
+    nodes = Array.from({ length: NODE_COUNT }, makeNode);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Edges
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MAX_DIST) {
+          const alpha = (1 - dist / MAX_DIST) * 0.28;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(47,200,238,${alpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Nodes
+    nodes.forEach((n) => {
+      n.phase += n.phaseSpeed;
+      const pulse = (Math.sin(n.phase) + 1) * 0.5;
+      const r = n.r + pulse * (n.isHub ? 2.5 : 1.2);
+
+      // Glow halo
+      const haloR = r * (n.isHub ? 8 : 5);
+      const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, haloR);
+      const alpha = (0.12 + pulse * 0.18).toFixed(2);
+      grad.addColorStop(0, n.color + Math.round(alpha * 255).toString(16).padStart(2, "0"));
+      grad.addColorStop(1, n.color + "00");
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, haloR, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Core dot
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = n.color;
+      ctx.fill();
+
+      // Drift and wrap
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < -20) n.x = W + 20;
+      else if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20;
+      else if (n.y > H + 20) n.y = -20;
+    });
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { resize(); }, 120);
+  });
+
+  // Pause when tab hidden
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) cancelAnimationFrame(raf);
+    else draw();
+  });
+
+  init();
+  draw();
+})();
