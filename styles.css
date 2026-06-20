@@ -4,8 +4,8 @@
 /* ── TOKENS ── */
 :root {
   --ink: #f0f6ff;
-  --ink-soft: rgba(220, 235, 255, 0.62);
-  --ink-muted: rgba(220, 235, 255, 0.32);
+  --ink-soft: #f0f6ff;
+  --ink-muted: #f0f6ff;
   --bg: #050a14;
   --bg-raised: rgba(255, 255, 255, 0.035);
   --cyan: #2fc8ee;
