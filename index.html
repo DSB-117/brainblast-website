@@ -5,402 +5,338 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Brainblast researches every external API before your agent codes it, then enforces the same rules in CI — permanently. Catch silent, irreversible integration failures before they ship."
+      content="brainblast is the fault-prevention layer for AI coding agents building on Solana."
     />
-    <title>brainblast — Research first. Enforce always.</title>
-    <link rel="icon" href="assets/icon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="assets/icon.png" />
-    <link rel="preload" href="assets/logo_large.jpg" as="image" />
+    <title>brainblast | Fault-prevention for Solana AI agents</title>
+    <link rel="icon" href="assets/brainblast_icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/brainblast_icon.png" />
+    <link rel="preload" href="assets/brainblast_centered.png" as="image" />
+    <link rel="preload" href="assets/solana-ai-mural-banner.jpg" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-
     <header class="site-header" data-header>
       <a class="brand-mark" href="#top" aria-label="brainblast home">
-        <img src="assets/logo_large.jpg" alt="brainblast" />
+        <img src="assets/brainblast_centered.png" alt="brainblast" />
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="#enforce">Enforce</a>
-        <a href="#example">Example</a>
         <a href="#install">Install</a>
+        <a href="#features">Features</a>
+        <a href="https://token.brainblast.tech">Token</a>
+        <a href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">Registry</a>
       </nav>
-      <a class="header-cta header-cta-app" href="https://app.brainblast.tech" target="_blank" rel="noopener">App</a>
-      <a class="header-cta" href="https://github.com/DSB-117/brainblast">GitHub</a>
+      <a class="header-cta" href="#install">Run brainblast</a>
       <button class="menu-button" type="button" data-menu-button aria-label="Open menu">
-        <span></span><span></span>
+        <span></span>
+        <span></span>
       </button>
     </header>
 
     <nav class="mobile-nav" data-mobile-nav aria-label="Mobile navigation">
-      <a href="#research">Research</a>
-      <a href="#enforce">Enforce</a>
-      <a href="#example">Example</a>
       <a href="#install">Install</a>
-      <a href="https://app.brainblast.tech" target="_blank" rel="noopener">App</a>
-      <a href="https://github.com/DSB-117/brainblast">GitHub</a>
+      <a href="#features">Features</a>
+      <a href="https://token.brainblast.tech">Token</a>
+      <a href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">Registry</a>
     </nav>
 
     <main id="top">
-
-      <!-- ── HERO ── -->
       <section class="hero" aria-labelledby="hero-title">
-        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+        <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+          <source src="assets/brainblast_banner.mp4" type="video/mp4" />
+        </video>
+        <div class="mural-glow" aria-hidden="true"></div>
+        <div class="hero-shade" aria-hidden="true"></div>
+
         <div class="hero-inner">
-          <p class="label hero-entry hero-entry-1">Two-part tool for AI agent integrations</p>
-          <h1 id="hero-title" class="hero-entry hero-entry-2">Research first.<br>Enforce always.</h1>
-          <p class="hero-lede hero-entry hero-entry-3">
-            Brainblast catches the silent, irreversible failures AI agents ship when integrating external APIs and SDKs — before a single line is written, and permanently after.
-          </p>
-          <div class="hero-actions hero-entry hero-entry-4">
-            <a class="btn-primary" href="#install">Install brainblast →</a>
-            <a class="btn-text" href="#research">See how it works ↓</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── STATS STRIP ── -->
-      <section class="stats" aria-label="Key facts">
-        <div class="stats-inner">
-          <div class="stat reveal">
-            <span class="stat-number">12</span>
-            <span class="stat-label">Bundled rules</span>
-          </div>
-          <div class="stat reveal reveal-delay-1">
-            <span class="stat-number">0</span>
-            <span class="stat-label">LLM calls in CI</span>
-          </div>
-          <div class="stat reveal reveal-delay-2">
-            <span class="stat-number">5+</span>
-            <span class="stat-label">Agent platforms</span>
-          </div>
-          <div class="stat reveal reveal-delay-3">
-            <span class="stat-number">∞</span>
-            <span class="stat-label">Enforced permanently</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── THE PROBLEM ── -->
-      <section class="pain" aria-label="The problem">
-        <div class="pain-inner">
-          <div class="pain-item reveal">
-            <span class="pain-num">01</span>
-            <h3>Silent failures</h3>
-            <p>Your agent codes from training data. APIs change. Wrong assumptions about auth flows, rate limits, and required fields ship without warning.</p>
-          </div>
-          <div class="pain-item reveal reveal-delay-1">
-            <span class="pain-num">02</span>
-            <h3>Irreversible decisions</h3>
-            <p>Some misconfigs — fee-share arrays, metadata mutability, program IDs — cannot be fixed post-deploy. You find out at the worst possible moment.</p>
-          </div>
-          <div class="pain-item reveal reveal-delay-2">
-            <span class="pain-num">03</span>
-            <h3>Stale training data</h3>
-            <p>The model knows the API as it was 18 months ago. Every changelog since then is your silent bug surface and your attack surface.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── PART ONE: /brainblast ── -->
-      <section class="part" id="research" aria-labelledby="research-title">
-        <div class="part-inner">
-          <div class="part-tag reveal">
-            <p class="label">Part one<br>Research</p>
-          </div>
-          <div class="part-content reveal reveal-delay-1">
-            <h2 id="research-title">/brainblast</h2>
-            <p class="part-sub">
-              Runs inside your coding agent. Reads your requirements file, identifies every external component — APIs, SDKs, auth providers, payment processors, chains — browses official live documentation for each one, and produces a sourced research report before any code is written. Every fact traces to a URL fetched during the run. Never training data.
-            </p>
-
-            <p class="label">Key behaviors</p>
-            <ul class="capability-list">
-              <li>Builds a per-component source plan: docs, registry, changelog, rate limits, auth flows</li>
-              <li>Browses official live URLs for each component — stale knowledge is explicitly flagged</li>
-              <li>Answers every open question from a live source, or marks it explicitly unresolvable</li>
-              <li>Reviews its own coverage and flags gaps before finishing</li>
-              <li>Re-reads requirements against research — catches wrong assumptions before they're coded</li>
-              <li>Flags immutable-after-deploy decisions before a single line exists</li>
-              <li>Prompt-injection resistant — browsed content is treated as data, never instructions</li>
-              <li>Caches per name@version — only re-researches what changed between runs</li>
-              <li>Auto-injects a report pointer into CLAUDE.md / AGENTS.md for the next session</li>
-            </ul>
-
-            <p class="label">Output</p>
-            <div class="output-callout">
-              <div class="output-row">
-                <code>final-report.md</code>
-                <span>Executive Summary, Risk Heatmap, per-component deep-dives with sourced findings</span>
-              </div>
-              <div class="output-row">
-                <code>report.json</code>
-                <span>Machine-readable structured output, for CI gates and downstream tooling</span>
-              </div>
+          <div class="hero-copy">
+            <p class="eyebrow">Waste Less Time. Ship Sounder Code</p>
+            <h1 id="hero-title">The Fault-Prevention Layer for AI Agents on Solana</h1>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button button-primary" href="#install">Run brainblast</a>
+              <a class="button button-secondary" href="#features">Explore features</a>
             </div>
+          </div>
 
-            <p class="label">Usage</p>
-            <div class="cmd-block">
+          <aside class="review-card" aria-label="brainblast critical finding example">
+            <div class="review-topline">
+              <span>brainblast critical finding</span>
+              <strong>critical</strong>
+            </div>
+            <div class="review-title">Creator fee wallet is missing from the launch requirements.</div>
+            <p>
+              If the agent builds the launch flow without this wallet, trading fees can route to
+              the wrong destination or disappear from the product economics.
+            </p>
+            <div class="review-diff">
+              <span>problem: no creator wallet address specified</span>
+              <span>impact: silent zero-revenue launch</span>
+              <span>fix: require fee wallet before implementation</span>
+            </div>
+            <div class="review-actions">
+              <span>evidence</span>
               <code>/brainblast requirements.md</code>
-              <button class="copy-btn" type="button" data-copy="/brainblast requirements.md">Copy</button>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 
-      <!-- ── PART TWO: npx brainblast ── -->
-      <section class="part" id="enforce" aria-labelledby="enforce-title">
-        <div class="part-inner">
-          <div class="part-tag reveal">
-            <p class="label">Part two<br>Enforce</p>
-          </div>
-          <div class="part-content reveal reveal-delay-1">
-            <h2 id="enforce-title">npx brainblast</h2>
-            <p class="part-sub">
-              Offline, zero-LLM static scanner. Runs in CI. Enforces the same traps surfaced during research — permanently, on every push. Fixed bugs can't silently regress. Pluggable community rule packs must pass a RED→GREEN prove gate before submission.
-            </p>
-
-            <p class="label">12 bundled rules</p>
-            <div class="rule-cards" role="list">
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">01</span>
-                </div>
-                <p class="rule-card-name">Stripe webhook raw-body signature verification</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">02</span>
-                </div>
-                <p class="rule-card-name">Privy / JWT signature + aud/iss verification</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">03</span>
-                </div>
-                <p class="rule-card-name">Bags / Solana fee-share creator inclusion</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">04</span>
-                </div>
-                <p class="rule-card-name">Token-2022 program-ID pinning</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">05</span>
-                </div>
-                <p class="rule-card-name">Metaplex metadata immutability</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">06</span>
-                </div>
-                <p class="rule-card-name">Anchor init_if_needed guards</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">07</span>
-                </div>
-                <p class="rule-card-name">Committed .env* secrets</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">08</span>
-                </div>
-                <p class="rule-card-name">Cross-file taint: secret leaks</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">09</span>
-                </div>
-                <p class="rule-card-name">Cross-file taint: command injection</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">10</span>
-                </div>
-                <p class="rule-card-name">Cross-file taint: SQL injection (Prisma)</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">11</span>
-                </div>
-                <p class="rule-card-name">Cross-file taint: open redirect</p>
-              </div>
-              <div class="rule-card" role="listitem">
-                <div class="rule-card-header">
-                  <span class="rule-dot" aria-hidden="true"></span>
-                  <span class="rule-num">12</span>
-                </div>
-                <p class="rule-card-name">Cross-file taint: JWT algorithm confusion</p>
-              </div>
-            </div>
-
-            <p class="label">Additional commands</p>
-            <div class="command-grid">
-              <div class="command-item">
-                <code>brainblast diff</code>
-                <span>OSV advisory risk comparison between package versions</span>
-              </div>
-              <div class="command-item">
-                <code>brainblast drift</code>
-                <span>Weekly advisory scan with baseline diffing</span>
-              </div>
-              <div class="command-item">
-                <code>brainblast fix --apply</code>
-                <span>Mechanical auto-fix for confirmed FAILs</span>
-              </div>
-              <div class="command-item">
-                <code>brainblast trust-graph</code>
-                <span>Solana program upgrade-authority resolution</span>
-              </div>
-              <div class="command-item">
-                <code>brainblast mcp</code>
-                <span>stdio MCP server for direct agent integration</span>
-              </div>
-            </div>
-
-            <p class="label">Scan your repo</p>
-            <div class="cmd-block">
-              <code>npx brainblast .</code>
-              <button class="copy-btn" type="button" data-copy="npx brainblast .">Copy</button>
-            </div>
-          </div>
+      <section class="proof-band" aria-label="Problems brainblast addresses">
+        <div class="proof-track">
+          <span>Silent zero-revenue launches</span>
+          <span>Wrong Solana SDK assumptions</span>
+          <span>Unverified webhooks</span>
+          <span>Stale API docs</span>
+          <span>Missing creator fee wallets</span>
+          <span>Auth bypasses</span>
+          <span>Unsafe agent shell commands</span>
+          <span>Rate-limit surprises</span>
+          <span>Silent zero-revenue launches</span>
+          <span>Wrong Solana SDK assumptions</span>
+          <span>Unverified webhooks</span>
+          <span>Stale API docs</span>
+          <span>Missing creator fee wallets</span>
+          <span>Auth bypasses</span>
+          <span>Unsafe agent shell commands</span>
+          <span>Rate-limit surprises</span>
         </div>
       </section>
 
-      <!-- ── REAL EXAMPLE ── -->
-      <section class="example" id="example" aria-labelledby="example-title">
-        <div class="example-inner">
-          <div class="example-copy reveal">
-            <p class="label">Real example</p>
-            <h2 id="example-title">Silent.<br>Permanent.<br>Zero revenue.</h2>
-            <p>The Bags API (Solana token launch) requires the creator wallet address in the fee-share array at deploy time. Omit it and the token goes live earning 0% of all trading fees — forever. No on-chain path to fix it post-deploy.</p>
-            <p>Brainblast caught this before a single line was written. The same rule now gates every CI run — it can never silently regress.</p>
+      <section class="mural-section" aria-labelledby="mural-title">
+        <div class="mural-panel">
+          <div>
+            <p class="eyebrow">Solana fault map</p>
+            <h2 id="mural-title">Agents can make mistakes. Solana makes them expensive.</h2>
           </div>
-          <div class="example-card reveal reveal-delay-1" data-scan-card aria-label="Example finding">
-            <div class="example-card-chrome" aria-hidden="true">
-              <span class="chrome-dot"></span>
-              <span class="chrome-dot"></span>
-              <span class="chrome-dot"></span>
-              <span class="chrome-label">brainblast — scanning</span>
-            </div>
-            <div class="example-card-body">
-              <div class="scan-progress" aria-hidden="true">
-                <div class="scan-progress-bar"></div>
-              </div>
-              <div class="scan-content">
-                <p class="example-card-status">
-                  <span class="status-dot" aria-hidden="true"></span>
-                  Misconfiguration caught pre-code
-                </p>
-                <h3>bags / solana fee-share array</h3>
-                <p class="example-finding">
-                  Creator wallet address absent from fee-share array at deploy time. Token goes live with creator earning 0% of all trading fees permanently. No upgrade path exists post-deploy. This decision is immutable once the transaction is confirmed on-chain.
-                </p>
-                <p class="example-verdict">↳ Caught before first line written</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── WORKS EVERYWHERE ── -->
-      <section class="compat" aria-label="Compatibility">
-        <div class="compat-inner">
-          <p class="label reveal">Works everywhere</p>
-          <h2 class="reveal reveal-delay-1">One install.<br>Every agent.</h2>
-          <div class="compat-grid" role="list">
-            <div class="compat-item reveal" role="listitem">Claude Code</div>
-            <div class="compat-item reveal reveal-delay-1" role="listitem">OpenClaw</div>
-            <div class="compat-item reveal reveal-delay-2" role="listitem">Codex</div>
-            <div class="compat-item reveal reveal-delay-3" role="listitem">Any agent with web access</div>
-          </div>
-          <p class="compat-note reveal">
-            SHA-256 verified install. Prompt-injection resistant — browsed content is treated as data, never instructions; adversarial doc content is quoted and flagged, not executed. GitHub Action for automated PR comments. Pluggable community rule packs — packs must pass a RED→GREEN prove gate before registry submission.
+          <p>
+            brainblast maps the docs, dependencies, launch paths, fee routes, auth surfaces, and
+            irreversible decisions before generated code turns uncertainty into shipped behavior.
           </p>
         </div>
       </section>
 
-      <!-- ── INSTALL ── -->
-      <section class="install" id="install" aria-labelledby="install-title">
-        <div class="install-inner">
-          <p class="label reveal">Get started</p>
-          <h2 id="install-title" class="reveal reveal-delay-1">Three steps.</h2>
-
-          <div class="step reveal">
-            <span class="step-label">01 — Install</span>
-            <div>
-              <h3>Add the research skill to your agent</h3>
-              <p>Installs /brainblast into your coding agent. SHA-256 verified. Works with Claude Code, OpenClaw, Codex, and any agent with web access.</p>
-              <div class="cmd-block">
-                <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh</code>
-                <button class="copy-btn" type="button" data-copy="curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.4.3/install.sh | sh">Copy</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="step reveal reveal-delay-1">
-            <span class="step-label">02 — Research</span>
-            <div>
-              <h3>Run before your agent writes a line</h3>
-              <p>Point it at your requirements file. It identifies every external component, browses their live docs, surfaces immutable-after-deploy decisions, and returns a sourced report.</p>
-              <div class="cmd-block">
-                <code>/brainblast requirements.md</code>
-                <button class="copy-btn" type="button" data-copy="/brainblast requirements.md">Copy</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="step reveal reveal-delay-2">
-            <span class="step-label">03 — Enforce</span>
-            <div>
-              <h3>Gate CI permanently</h3>
-              <p>The offline CLI auditor runs the same rules on every push. Fixed bugs can't silently regress. Outputs RED / GREEN per rule with exact file and line.</p>
-              <div class="cmd-block">
-                <code>npx brainblast .</code>
-                <button class="copy-btn" type="button" data-copy="npx brainblast .">Copy</button>
-              </div>
-            </div>
+      <section class="partners-section" aria-labelledby="partners-title">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Brainblast Integration Partners</p>
+            <h2 id="partners-title">Built around real Solana product surfaces.</h2>
           </div>
         </div>
-      </section>
-
-      <!-- ── $BRAIN TOKEN ── -->
-      <section class="token-section" aria-labelledby="token-title">
-        <div class="token-inner">
-          <div class="token-copy reveal">
-            <p class="label">$BRAIN token</p>
-            <h2 id="token-title">Funding brainblast<br>development.</h2>
-            <p>Community trading fees help support ongoing development and the expansion of the rule library.</p>
-            <p class="token-ca">CA: 7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump</p>
-          </div>
-          <a
-            class="btn-token reveal reveal-delay-1"
-            href="https://pump.fun/coin/7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Get $BRAIN ↗
+        <div class="partner-grid">
+          <a class="partner-card" href="https://www.daemonide.tech/" target="_blank" rel="noreferrer">
+            <img src="assets/daemon-mark-white.png" alt="Daemon Terminal" />
+            <div>
+              <span>Product partner</span>
+              <h3>Daemon Terminal</h3>
+              <p>brainblast is integrated directly into Daemon Terminal, the Cursor of Solana.</p>
+            </div>
+          </a>
+          <a class="partner-card" href="https://ricomaps.fun/" target="_blank" rel="noreferrer">
+            <img src="assets/rico-favicon.png" alt="Rico Maps" />
+            <div>
+              <span>Product partner</span>
+              <h3>Rico Maps</h3>
+              <p>Rico Maps is wired into brainblast for advanced on-chain token intelligence.</p>
+            </div>
           </a>
         </div>
       </section>
 
+      <section class="features-section" id="features" aria-labelledby="features-title">
+        <div class="section-heading">
+          <p class="eyebrow">Features from the brainblast README</p>
+          <h2 id="features-title">Organized guardrails before the agent starts coding.</h2>
+          <p>
+            brainblast turns requirements into a browsed, cited, structured research run that travels
+            with the project and gives downstream agents fewer ways to hallucinate integrations.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span>Research workflow</span>
+            <h3>Requirements in, component map out</h3>
+            <p>Auto-detects spec files, inventories APIs, SDKs, auth providers, databases, payment processors, cloud platforms, and chains.</p>
+          </article>
+          <article>
+            <span>Live source planning</span>
+            <h3>Fetch, don't recall</h3>
+            <p>Plans official docs, registries, changelogs, and rate-limit sources per component, then browses live URLs for every fact.</p>
+          </article>
+          <article>
+            <span>Questions loop</span>
+            <h3>No dangling uncertainty</h3>
+            <p>Every surfaced question is answered from a live URL or marked unresolvable with a note on where brainblast looked.</p>
+          </article>
+          <article>
+            <span>Coverage review</span>
+            <h3>Research checks itself</h3>
+            <p>Reviews coverage, re-reads the original requirements, and flags wrong assumptions, missing constraints, and immutable decisions.</p>
+          </article>
+          <article>
+            <span>Per-component output</span>
+            <h3>Facts, assumptions, inferences, risks</h3>
+            <p>Each component file separates sourced facts, inferred assumptions, derived inferences, rated risks, and resolved questions.</p>
+          </article>
+          <article>
+            <span>Handoff report</span>
+            <h3>Executive summary and risk heatmap</h3>
+            <p>final-report.md opens with verdict, top risk, irreversible decision, biggest spec gap, and severity counts by component.</p>
+          </article>
+          <article>
+            <span>Agent instructions</span>
+            <h3>Report pointer auto-injected</h3>
+            <p>Writes an idempotent report pointer into CLAUDE.md or AGENTS.md so the next coding session loads the research.</p>
+          </article>
+          <article>
+            <span>Machine contract</span>
+            <h3>report.json schema 1.0</h3>
+            <p>Emits stable structured data for components, severity-tagged risks, pre-coding decisions, and requirements corrections.</p>
+          </article>
+          <article>
+            <span>CI gate</span>
+            <h3>Turn risk into an exit code</h3>
+            <p>--ci mode and a dependency-free gate script can fail builds on CRITICAL or HIGH unresolved risks.</p>
+          </article>
+          <article>
+            <span>Incremental cache</span>
+            <h3>Cached per name@version</h3>
+            <p>Re-runs reuse unchanged component research from .agent-research/cache and only re-research changed components.</p>
+          </article>
+          <article>
+            <span>Security model</span>
+            <h3>Docs are data, never instructions</h3>
+            <p>Prompt-injection content found in docs is quoted and flagged, never followed or propagated as an action.</p>
+          </article>
+          <article>
+            <span>Agent support</span>
+            <h3>Claude Code, OpenClaw, Codex, generic agents</h3>
+            <p>Ships slash commands, adapters, secure tagged installer checksums, update flow, example runs, and validation scripts.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="bugs-section" aria-labelledby="examples-title">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">What it catches</p>
+            <h2 id="examples-title">The bugs agents are most likely to ship are often documented.</h2>
+          </div>
+          <a class="button button-secondary" href="https://github.com/DSB-117/brainblast">View GitHub</a>
+        </div>
+        <div class="bug-grid">
+          <article>
+            <div class="bug-meta">
+              <span>Solana</span>
+              <strong>critical</strong>
+            </div>
+            <h3>Bags launch fee routes</h3>
+            <p>Fee sharing BPS, creator wallet inclusion, Jito bundles, LUT slot waits, immutable fee modes, SDK names, and rate limits.</p>
+            <code>silent zero-revenue launch prevented</code>
+          </article>
+          <article>
+            <div class="bug-meta">
+              <span>Web2</span>
+              <strong>critical</strong>
+            </div>
+            <h3>Stripe webhook verification</h3>
+            <p>Parsed-body webhook handlers can accept forged paid events and unlock features without payment.</p>
+            <code>raw-body verification surfaced</code>
+          </article>
+          <article>
+            <div class="bug-meta">
+              <span>Auth</span>
+              <strong>critical</strong>
+            </div>
+            <h3>Privy token validation</h3>
+            <p>Decoding access tokens without verifying ES256 signature and aud/iss claims creates an auth bypass.</p>
+            <code>server-side token checks required</code>
+          </article>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <span>RESEARCH · PREVENT · VERIFY · COMPOUND · SOLANA · AGENTS · GUARDRAILS ·</span>
+      </div>
+
+      <section class="install-section" id="install" aria-labelledby="install-title">
+        <div class="section-heading">
+          <p class="eyebrow">Install brainblast</p>
+          <h2 id="install-title">Run the pre-flight before the agent writes the fault.</h2>
+        </div>
+        <div class="install-layout">
+          <article class="install-card">
+            <span>Install from shell</span>
+            <div class="command-block">
+              <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.1.4/install.sh | sh</code>
+              <button
+                class="copy-button"
+                type="button"
+                data-copy="curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.1.4/install.sh | sh"
+              >
+                Copy
+              </button>
+            </div>
+          </article>
+          <article class="install-card large">
+            <span>Tell your AI agent</span>
+            <p>
+              Install brainblast by running:
+              <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.1.4/install.sh | sh</code>
+              Then run <code>/brainblast requirements.md</code> before implementation.
+            </p>
+            <button
+              class="copy-button"
+              type="button"
+              data-copy="Install brainblast by running: curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v0.1.4/install.sh | sh. Then run /brainblast requirements.md before implementation."
+            >
+              Copy prompt
+            </button>
+          </article>
+          <article class="install-card compact">
+            <span>Use after install</span>
+            <div class="command-block">
+              <code>/brainblast requirements.md</code>
+              <button class="copy-button" type="button" data-copy="/brainblast requirements.md">Copy</button>
+            </div>
+          </article>
+          <article class="install-card compact">
+            <span>Fresh research</span>
+            <div class="command-block">
+              <code>/brainblast requirements.md --fresh</code>
+              <button class="copy-button" type="button" data-copy="/brainblast requirements.md --fresh">Copy</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="token-section" id="token" aria-labelledby="token-title">
+        <div class="token-inner token-pump">
+          <div>
+            <p class="eyebrow">Funding Brainblast</p>
+            <h2 id="token-title" class="token-title">
+              <span>$BRAIN is on</span>
+              <span class="pump-title-brand">
+                <img src="assets/pump-logomark.svg" alt="Pump.Fun" />
+                <span>Pump.Fun</span>
+              </span>
+            </h2>
+            <p>
+              The $BRAIN token drives the coding knowledge economy on Solana. Trading fees help
+              fund development, buybacks, and burns.
+            </p>
+            <p class="contract-address">CA: 7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump</p>
+          </div>
+          <a
+            class="button button-primary"
+            href="https://pump.fun/coin/7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump"
+          >
+            Get $BRAIN
+          </a>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
+      <img src="assets/brainblast_centered.png" alt="brainblast" />
       <span>© 2026 brainblast AI. All Rights Reserved.</span>
       <a href="https://github.com/DSB-117/brainblast">brainblast GitHub</a>
     </footer>
