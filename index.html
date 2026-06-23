@@ -351,10 +351,33 @@
             </article>
             <aside class="vti-artifact" aria-label="Verified Trap Instance example">
               <div class="vti-topline">
-                <span>verified_trap_instance.json</span>
-                <strong>VTI</strong>
+                <div>
+                  <span>verified_trap_instance.json</span>
+                  <strong>VTI</strong>
+                </div>
+                <span class="vti-seal">red -> green verified</span>
               </div>
-              <pre><code><span class="vti-k">"trap_id"</span>: <span class="vti-s">"metaplex-seller-fee-zero"</span>,
+              <div class="vti-summary">
+                <div>
+                  <span>Trap</span>
+                  <strong>Seller fee silently set to zero</strong>
+                </div>
+                <div>
+                  <span>SDK</span>
+                  <strong>mpl-token-metadata@3.2.0</strong>
+                </div>
+                <div>
+                  <span>Severity</span>
+                  <strong class="is-critical">Critical</strong>
+                </div>
+              </div>
+              <div class="vti-proof">
+                <span><strong>RED</strong> failing test reproduced</span>
+                <span><strong>GREEN</strong> fix passed</span>
+                <span><strong>7</strong> corroborating repos</span>
+              </div>
+              <div class="vti-code-wrap">
+                <pre><code><span class="vti-k">"trap_id"</span>: <span class="vti-s">"metaplex-seller-fee-zero"</span>,
 <span class="vti-k">"sdk"</span>: <span class="vti-s">"mpl-token-metadata@3.2.0"</span>,
 <span class="vti-k">"vulnerable_snippet"</span>: <span class="vti-red">"…"</span>,  <span class="vti-c">// RED</span>
 <span class="vti-k">"fixed_snippet"</span>: <span class="vti-green">"…"</span>,        <span class="vti-c">// GREEN</span>
@@ -362,6 +385,7 @@
 <span class="vti-k">"red_green_proof"</span>: { <span class="vti-k">"red"</span>: <span class="vti-green">true</span>, <span class="vti-k">"green"</span>: <span class="vti-green">true</span> },
 <span class="vti-k">"corroboration_count"</span>: <span class="vti-num">7</span>,
 <span class="vti-k">"severity"</span>: <span class="vti-red">"CRITICAL"</span></code></pre>
+              </div>
             </aside>
           </div>
 
