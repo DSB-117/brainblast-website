@@ -22,6 +22,7 @@
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#install">Install</a>
         <a href="#features">Features</a>
+        <a href="#evolved">Evolved</a>
         <a href="https://token.brainblast.tech">Token</a>
         <a href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">Registry</a>
       </nav>
@@ -35,6 +36,7 @@
     <nav class="mobile-nav" data-mobile-nav aria-label="Mobile navigation">
       <a href="#install">Install</a>
       <a href="#features">Features</a>
+      <a href="#evolved">Evolved</a>
       <a href="https://token.brainblast.tech">Token</a>
       <a href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">Registry</a>
     </nav>
@@ -305,6 +307,158 @@
               <button class="copy-button" type="button" data-copy="/brainblast requirements.md --fresh">Copy</button>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="evolved-section" id="evolved" aria-labelledby="evolved-title">
+        <div class="evolved-aura" aria-hidden="true"></div>
+        <div class="evolved-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Brainblast Evolved</p>
+            <h2 id="evolved-title">The fault-prevention layer is becoming an AI training-data platform.</h2>
+            <p>
+              Every time <code class="inline-code">brainblast fix --apply</code> confirms a repair — the original
+              test failing on the broken code and passing on the fix — it manufactures the scarcest artifact in the
+              AI training-data market: a machine-verified, version-pinned, reproducible record of a real security
+              failure and its proven fix. We're building the infrastructure to capture, license, and stream it at scale.
+            </p>
+          </div>
+
+          <div class="evolved-grid">
+            <article class="evolved-card">
+              <span>The unit of value</span>
+              <h3>The Verified Trap Instance</h3>
+              <p>
+                A VTI bundles the vulnerable snippet, the corrected snippet, the generated regression test, and the
+                result of re-running both. Not a tag on a commit — an executable claim anyone can reproduce.
+              </p>
+            </article>
+            <article class="evolved-card">
+              <span>Why it's the moat</span>
+              <h3>RED→GREEN is a verifiable reward</h3>
+              <p>
+                Reinforcement learning from verifiable rewards needs ground truth that can be checked
+                programmatically. The model's code passes the test or it doesn't. There is no ambiguity to annotate.
+              </p>
+            </article>
+            <article class="evolved-card">
+              <span>What scrapers can't fake</span>
+              <h3>Freshness and corroboration</h3>
+              <p>
+                Each VTI is pinned to the exact SDK version the failure was found on, and weighted by the number of
+                distinct repositories that confirmed the same fix. Stale, ungraded scraped code can't replicate either.
+              </p>
+            </article>
+            <aside class="vti-artifact" aria-label="Verified Trap Instance example">
+              <div class="vti-topline">
+                <span>verified_trap_instance.json</span>
+                <strong>VTI</strong>
+              </div>
+              <pre><code><span class="vti-k">"trap_id"</span>: <span class="vti-s">"metaplex-seller-fee-zero"</span>,
+<span class="vti-k">"sdk"</span>: <span class="vti-s">"mpl-token-metadata@3.2.0"</span>,
+<span class="vti-k">"vulnerable_snippet"</span>: <span class="vti-red">"…"</span>,  <span class="vti-c">// RED</span>
+<span class="vti-k">"fixed_snippet"</span>: <span class="vti-green">"…"</span>,        <span class="vti-c">// GREEN</span>
+<span class="vti-k">"generated_test"</span>: <span class="vti-s">"…"</span>,
+<span class="vti-k">"red_green_proof"</span>: { <span class="vti-k">"red"</span>: <span class="vti-green">true</span>, <span class="vti-k">"green"</span>: <span class="vti-green">true</span> },
+<span class="vti-k">"corroboration_count"</span>: <span class="vti-num">7</span>,
+<span class="vti-k">"severity"</span>: <span class="vti-red">"CRITICAL"</span></code></pre>
+            </aside>
+          </div>
+
+          <div class="roadmap" data-roadmap>
+            <div class="roadmap-head">
+              <div>
+                <p class="eyebrow">
+                  <span class="live-dot" aria-hidden="true"></span>Live roadmap
+                </p>
+                <h3>Synced from GitHub in real time</h3>
+              </div>
+              <div class="roadmap-meta">
+                <span data-roadmap-meta>Loading latest from <code>training-data</code>…</span>
+                <a
+                  class="button button-secondary"
+                  href="https://github.com/DSB-117/brainblast/blob/training-data/ROADMAP-TRAINING-DATA.md"
+                  target="_blank"
+                  rel="noreferrer"
+                >Full roadmap</a>
+              </div>
+            </div>
+
+            <ol class="roadmap-ladder" data-roadmap-ladder>
+              <li class="roadmap-stage is-shipped">
+                <div class="roadmap-node" aria-hidden="true"></div>
+                <div class="roadmap-body">
+                  <div class="roadmap-stageline">
+                    <span class="roadmap-num">Stage 0</span>
+                    <span class="roadmap-status">Shipped</span>
+                  </div>
+                  <h4>Define &amp; capture the VTI</h4>
+                  <p>VTI schema v1 committed; seed records generate from existing packs.</p>
+                  <span class="roadmap-window">shipped (training-data)</span>
+                </div>
+              </li>
+              <li class="roadmap-stage is-progress">
+                <div class="roadmap-node" aria-hidden="true"></div>
+                <div class="roadmap-body">
+                  <div class="roadmap-stageline">
+                    <span class="roadmap-num">Stage 1</span>
+                    <span class="roadmap-status">In progress</span>
+                  </div>
+                  <h4>Owned synthetic seed corpus + buyer validation</h4>
+                  <p>License-clean seed dataset + ≥1 paid pilot / signed LOI.</p>
+                  <span class="roadmap-window">Q3–Q4 2026</span>
+                </div>
+              </li>
+              <li class="roadmap-stage is-progress">
+                <div class="roadmap-node" aria-hidden="true"></div>
+                <div class="roadmap-body">
+                  <div class="roadmap-stageline">
+                    <span class="roadmap-num">Stage 2</span>
+                    <span class="roadmap-status">In progress</span>
+                  </div>
+                  <h4>Consent &amp; contribution pipeline</h4>
+                  <p>First consented user VTIs flowing; first $BRAIN data dividend paid.</p>
+                  <span class="roadmap-window">Q4 2026 – Q1 2027</span>
+                </div>
+              </li>
+              <li class="roadmap-stage is-todo">
+                <div class="roadmap-node" aria-hidden="true"></div>
+                <div class="roadmap-body">
+                  <div class="roadmap-stageline">
+                    <span class="roadmap-num">Stage 3</span>
+                    <span class="roadmap-status">Not started</span>
+                  </div>
+                  <h4>The data factory at scale</h4>
+                  <p>Continuous VTI production across N≥50 SDKs at a quality SLA.</p>
+                  <span class="roadmap-window">Q1–Q2 2027</span>
+                </div>
+              </li>
+              <li class="roadmap-stage is-todo">
+                <div class="roadmap-node" aria-hidden="true"></div>
+                <div class="roadmap-body">
+                  <div class="roadmap-stageline">
+                    <span class="roadmap-num">Stage 4</span>
+                    <span class="roadmap-status">Not started</span>
+                  </div>
+                  <h4>Real-time feed + marketplace</h4>
+                  <p>Live subscription feed with paying customers settling in $BRAIN/USDC.</p>
+                  <span class="roadmap-window">Q2–Q3 2027</span>
+                </div>
+              </li>
+              <li class="roadmap-stage is-todo">
+                <div class="roadmap-node" aria-hidden="true"></div>
+                <div class="roadmap-body">
+                  <div class="roadmap-stageline">
+                    <span class="roadmap-num">Stage 5</span>
+                    <span class="roadmap-status">Not started</span>
+                  </div>
+                  <h4>Eval/benchmark product + closed flywheel</h4>
+                  <p>Cited public benchmark + recurring eval revenue + self-sustaining token loop.</p>
+                  <span class="roadmap-window">Q3 2027+</span>
+                </div>
+              </li>
+            </ol>
+          </div>
         </div>
       </section>
 
