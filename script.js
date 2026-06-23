@@ -93,6 +93,110 @@ if (scanCard) {
   scanObserver.observe(scanCard);
 }
 
+/* ── LIVE ROADMAP (synced from GitHub) ── */
+(function initRoadmap() {
+  const root = document.querySelector("[data-roadmap]");
+  if (!root) return;
+
+  const ladder = root.querySelector("[data-roadmap-ladder]");
+  const meta = root.querySelector("[data-roadmap-meta]");
+  const RAW_URL =
+    "https://raw.githubusercontent.com/DSB-117/brainblast/training-data/ROADMAP-TRAINING-DATA.md";
+
+  // Maps the markdown status glyphs to our CSS state + label.
+  const STATUS = {
+    "✅": { cls: "is-shipped", label: "Shipped" },
+    "◐": { cls: "is-progress", label: "In progress" },
+    "☐": { cls: "is-todo", label: "Not started" },
+  };
+
+  // Strip the inline markdown the table cells carry (**bold**, `code`, _em_, links).
+  const clean = (s) =>
+    s
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1") // links → text
+      .replace(/[*_`]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  const esc = (s) =>
+    s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
+  function parseStages(md) {
+    const stages = [];
+    const rows = md.split("\n").filter((l) => /^\|\s*\*\*\d/.test(l));
+    rows.forEach((row) => {
+      const cells = row.split("|").map((c) => c.trim());
+      // cells: ["", stage, theme, milestone, window, ""]
+      if (cells.length < 5) return;
+      const stageCell = cells[1];
+      const numMatch = stageCell.match(/(\d+)/);
+      const glyph = Object.keys(STATUS).find((g) => stageCell.includes(g));
+      if (!numMatch || !glyph) return;
+      stages.push({
+        num: numMatch[1],
+        status: STATUS[glyph],
+        theme: clean(cells[2]),
+        milestone: clean(cells[3]),
+        window: clean(cells[4]),
+      });
+    });
+    return stages;
+  }
+
+  function parseMeta(md) {
+    const updated = md.match(/\*\*Last updated:\*\*\s*([0-9-]+)/);
+    const anchor = md.match(/anchored at\s*\*\*([^*]+)\*\*/);
+    return {
+      updated: updated ? updated[1] : null,
+      anchor: anchor ? anchor[1].trim() : null,
+    };
+  }
+
+  function render(stages) {
+    ladder.innerHTML = stages
+      .map(
+        (s) => `
+      <li class="roadmap-stage ${s.status.cls}">
+        <div class="roadmap-node" aria-hidden="true"></div>
+        <div class="roadmap-body">
+          <div class="roadmap-stageline">
+            <span class="roadmap-num">Stage ${esc(s.num)}</span>
+            <span class="roadmap-status">${esc(s.status.label)}</span>
+          </div>
+          <h4>${esc(s.theme)}</h4>
+          <p>${esc(s.milestone)}</p>
+          <span class="roadmap-window">${esc(s.window)}</span>
+        </div>
+      </li>`
+      )
+      .join("");
+  }
+
+  fetch(RAW_URL, { cache: "no-store" })
+    .then((res) => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.text();
+    })
+    .then((md) => {
+      const stages = parseStages(md);
+      if (stages.length) render(stages);
+
+      const { updated, anchor } = parseMeta(md);
+      if (meta && (updated || anchor)) {
+        const bits = [];
+        if (updated) bits.push(`Updated ${updated}`);
+        if (anchor) bits.push(`anchored at <code>${esc(anchor)}</code>`);
+        meta.innerHTML = `${bits.join(" · ")} · synced from <code>training-data</code>`;
+      }
+    })
+    .catch(() => {
+      // Offline / fetch blocked: keep the static fallback markup already in the DOM.
+      if (meta) {
+        meta.innerHTML = "Showing last known roadmap · view live on <code>GitHub</code>";
+      }
+    });
+})();
+
 /* ── HERO CANVAS — NEURAL NETWORK ── */
 (function initCanvas() {
   const canvas = document.getElementById("hero-canvas");
