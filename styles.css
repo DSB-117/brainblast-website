@@ -1622,13 +1622,6 @@ p {
   max-width: 760px;
 }
 
-.roadmap-window {
-  color: var(--ink-muted);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.78rem;
-  font-weight: 750;
-}
-
 /* status theming */
 .roadmap-stage.is-shipped .roadmap-node {
   background: var(--green);

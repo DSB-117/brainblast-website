@@ -126,7 +126,7 @@ if (scanCard) {
     const rows = md.split("\n").filter((l) => /^\|\s*\*\*\d/.test(l));
     rows.forEach((row) => {
       const cells = row.split("|").map((c) => c.trim());
-      // cells: ["", stage, theme, milestone, window, ""]
+      // cells: ["", stage, theme, milestone, timing, ""]
       if (cells.length < 5) return;
       const stageCell = cells[1];
       const numMatch = stageCell.match(/(\d+)/);
@@ -137,7 +137,6 @@ if (scanCard) {
         status: STATUS[glyph],
         theme: clean(cells[2]),
         milestone: clean(cells[3]),
-        window: clean(cells[4]),
       });
     });
     return stages;
@@ -165,7 +164,6 @@ if (scanCard) {
           </div>
           <h4>${esc(s.theme)}</h4>
           <p>${esc(s.milestone)}</p>
-          <span class="roadmap-window">${esc(s.window)}</span>
         </div>
       </li>`
       )
