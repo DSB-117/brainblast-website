@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="brainblast is the fault-prevention layer for AI coding agents building on Solana."
+      content="Brainblast is the verified AI training-data marketplace for code: reproducible error-to-fix records, evals, and fresh data from real integration failures."
     />
-    <title>brainblast | Fault-prevention for Solana AI agents</title>
+    <title>brainblast | Verified AI training data for code</title>
     <link rel="icon" href="assets/brainblast_icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/brainblast_icon.png" />
     <link rel="preload" href="assets/brainblast_centered.png" as="image" />
     <link rel="preload" href="assets/solana-ai-mural-banner.jpg" as="image" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=marketplace-2" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -20,13 +20,13 @@
         <img src="assets/brainblast_centered.png" alt="brainblast" />
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#marketplace">Marketplace</a>
+        <a href="#integrity">Integrity</a>
+        <a href="#platform">Platform</a>
         <a href="#install">Install</a>
-        <a href="#features">Features</a>
-        <a href="#evolved">Evolved</a>
         <a href="https://token.brainblast.tech">Token</a>
-        <a href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">Registry</a>
       </nav>
-      <a class="header-cta" href="#install">Run brainblast</a>
+      <a class="header-cta" href="#marketplace">Explore the data</a>
       <button class="menu-button" type="button" data-menu-button aria-label="Open menu">
         <span></span>
         <span></span>
@@ -34,9 +34,10 @@
     </header>
 
     <nav class="mobile-nav" data-mobile-nav aria-label="Mobile navigation">
+      <a href="#marketplace">Marketplace</a>
+      <a href="#integrity">Integrity</a>
+      <a href="#platform">Platform</a>
       <a href="#install">Install</a>
-      <a href="#features">Features</a>
-      <a href="#evolved">Evolved</a>
       <a href="https://token.brainblast.tech">Token</a>
       <a href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">Registry</a>
     </nav>
@@ -51,68 +52,159 @@
 
         <div class="hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow">Waste Less Time. Ship Sounder Code</p>
-            <h1 id="hero-title">The Fault-Prevention Layer for AI Agents on Solana</h1>
+            <p class="eyebrow">Fault prevention, evolved into training data</p>
+            <h1 id="hero-title">Verified training data for AI that writes code.</h1>
+            <p class="hero-lede">
+              Brainblast turns confirmed integration failures into fresh, version-pinned
+              error→fix→test→proof records for model training and evaluation.
+            </p>
             <div class="hero-actions" aria-label="Primary actions">
-              <a class="button button-primary" href="#install">Run brainblast</a>
-              <a class="button button-secondary" href="#features">Explore features</a>
+              <a class="button button-primary" href="#marketplace">Explore the marketplace</a>
+              <a
+                class="button button-secondary"
+                href="https://github.com/DSB-117/brainblast/tree/training-data/datasets/v0.1.0/sample"
+                target="_blank"
+                rel="noreferrer"
+              >Review the public sample</a>
             </div>
           </div>
 
-          <aside class="review-card" aria-label="brainblast critical finding example">
+          <aside class="review-card market-card" aria-label="Verified Trap Instance marketplace asset">
             <div class="review-topline">
-              <span>brainblast critical finding</span>
-              <strong>critical</strong>
+              <span>marketplace asset / VTI</span>
+              <strong class="verified-badge">verified</strong>
             </div>
-            <div class="review-title">Creator fee wallet is missing from the launch requirements.</div>
+            <div class="review-title">Seller fee silently set to zero.</div>
             <p>
-              If the agent builds the launch flow without this wallet, trading fees can route to
-              the wrong destination or disappear from the product economics.
+              A machine-verifiable training record pinned to the SDK version where the failure occurs.
             </p>
             <div class="review-diff">
-              <span>problem: no creator wallet address specified</span>
-              <span>impact: silent zero-revenue launch</span>
-              <span>fix: require fee wallet before implementation</span>
+              <span>RED&nbsp;&nbsp;&nbsp; vulnerable code reproduces the fault</span>
+              <span>GREEN fixed code passes the regression test</span>
+              <span>PROOF&nbsp; source + version + license attached</span>
             </div>
             <div class="review-actions">
-              <span>evidence</span>
-              <code>/brainblast requirements.md</code>
+              <span>dataset v0.1.0</span>
+              <code>reproducibility: 100%</code>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="proof-band" aria-label="Problems brainblast addresses">
+      <section class="proof-band" aria-label="Brainblast data guarantees">
         <div class="proof-track">
-          <span>Silent zero-revenue launches</span>
-          <span>Wrong Solana SDK assumptions</span>
-          <span>Unverified webhooks</span>
-          <span>Stale API docs</span>
-          <span>Missing creator fee wallets</span>
-          <span>Auth bypasses</span>
-          <span>Unsafe agent shell commands</span>
-          <span>Rate-limit surprises</span>
-          <span>Silent zero-revenue launches</span>
-          <span>Wrong Solana SDK assumptions</span>
-          <span>Unverified webhooks</span>
-          <span>Stale API docs</span>
-          <span>Missing creator fee wallets</span>
-          <span>Auth bypasses</span>
-          <span>Unsafe agent shell commands</span>
-          <span>Rate-limit surprises</span>
+          <span>RED→GREEN verified</span>
+          <span>Exact SDK versions</span>
+          <span>Executable regression tests</span>
+          <span>Consent-safe contribution</span>
+          <span>Source provenance</span>
+          <span>Multi-repo corroboration</span>
+          <span>License-clean lots</span>
+          <span>Tamper-evident releases</span>
+          <span>RED→GREEN verified</span>
+          <span>Exact SDK versions</span>
+          <span>Executable regression tests</span>
+          <span>Consent-safe contribution</span>
+          <span>Source provenance</span>
+          <span>Multi-repo corroboration</span>
+          <span>License-clean lots</span>
+          <span>Tamper-evident releases</span>
         </div>
       </section>
 
       <section class="mural-section" aria-labelledby="mural-title">
         <div class="mural-panel">
           <div>
-            <p class="eyebrow">Solana fault map</p>
-            <h2 id="mural-title">Agents can make mistakes. Solana makes them expensive.</h2>
+            <p class="eyebrow">The Brainblast thesis</p>
+            <h2 id="mural-title">Training data should prove what it knows.</h2>
           </div>
           <p>
-            brainblast maps the docs, dependencies, launch paths, fee routes, auth surfaces, and
-            irreversible decisions before generated code turns uncertainty into shipped behavior.
+            Most code data shows an answer. Brainblast shows the failure, the correction, the test,
+            and the proof that the test moved from RED to GREEN—ground truth a machine can grade.
           </p>
+        </div>
+      </section>
+
+      <section class="marketplace-section" id="marketplace" aria-labelledby="marketplace-title">
+        <div class="marketplace-inner">
+          <div class="section-heading split">
+            <div>
+              <p class="eyebrow">The AI training-data marketplace (coming soon)</p>
+              <h2 id="marketplace-title">A market for failures worth learning from.</h2>
+              <p>
+                Brainblast packages verified integration traps as training data, held-out evals,
+                and—on the roadmap—a continuously updated feed filtered to each buyer's stack.
+              </p>
+            </div>
+            <div class="market-status" aria-label="Marketplace release status">
+              <span>Available now</span>
+              <strong>Dataset v0.1.0 + eval harness</strong>
+              <small>Marketplace access and streaming feed are in development.</small>
+            </div>
+          </div>
+
+          <div class="market-sides">
+            <article class="market-side buyer-side">
+              <span class="market-kicker">For labs &amp; coding-agent teams</span>
+              <h3>Buy data with an objective reward.</h3>
+              <p>
+                Train and evaluate against failures drawn from current APIs—not unlabeled code dumps.
+                Filter by SDK, trap class, severity, corroboration, and proof quality.
+              </p>
+              <ul>
+                <li>Public sample and gated full dataset lots</li>
+                <li>Held-out benchmark tasks with a deterministic oracle</li>
+                <li>Reproducibility receipts and tamper-evident checksums</li>
+              </ul>
+              <a
+                class="text-link"
+                href="https://github.com/DSB-117/brainblast/tree/training-data/datasets/v0.1.0"
+                target="_blank"
+                rel="noreferrer"
+              >Inspect dataset v0.1.0 <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="market-side contributor-side">
+              <span class="market-kicker">For developers &amp; scouts</span>
+              <h3>Contribute proof, not raw code.</h3>
+              <p>
+                Opt in to turn a confirmed repair into a minimized, secret-scanned VTI. Owned and
+                contributed data remain physically separate, with provenance and consent attached.
+              </p>
+              <ul>
+                <li>Explicit opt-in; hash-only telemetry remains the default</li>
+                <li>Secret scan, RED→GREEN reproduction, and license gates</li>
+                <li>Planned `$BRAIN` quality bonds and contributor dividends</li>
+              </ul>
+              <a
+                class="text-link"
+                href="https://github.com/DSB-117/brainblast/blob/training-data/ROADMAP-TRAINING-DATA.md#stage-2--consent--contribution-pipeline-turn-users-into-supply"
+                target="_blank"
+                rel="noreferrer"
+              >Read the contribution model <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+
+          <div class="product-rail" aria-label="Brainblast data products">
+            <article>
+              <span>01 / Dataset</span>
+              <h3>Versioned VTI lots</h3>
+              <p>Schema-valid records with datasheets, licenses, provenance, and SHA256 checksums.</p>
+              <strong class="product-state is-live">Available</strong>
+            </article>
+            <article>
+              <span>02 / Evals</span>
+              <h3>Reward-gradable benchmark</h3>
+              <p>Held-out tasks scored by the same checker that proved each underlying trap.</p>
+              <strong class="product-state is-live">Available</strong>
+            </article>
+            <article>
+              <span>03 / Feed</span>
+              <h3>Freshness as a subscription</h3>
+              <p>Newly verified and corroborated VTIs, filtered to the buyer's exact stack.</p>
+              <strong class="product-state">Roadmap</strong>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -255,8 +347,49 @@
         </div>
       </section>
 
+      <section class="integrity-section" id="integrity" aria-labelledby="integrity-title">
+        <div class="section-heading">
+          <p class="eyebrow">Integrity is the product</p>
+          <h2 id="integrity-title">No proof, no marketplace.</h2>
+          <p>
+            The value of training data collapses when buyers cannot verify where it came from,
+            whether it still reproduces, or whether its contributor agreed to its use.
+            Brainblast makes each of those questions part of the artifact.
+          </p>
+        </div>
+        <div class="integrity-grid">
+          <article>
+            <span>01</span>
+            <h3>Reproduced</h3>
+            <p>Every accepted record must fail on the vulnerable fixture and pass on the fix.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Provenanced</h3>
+            <p>Source URLs, SDK version, capture time, and corroboration travel with the record.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Consent-scoped</h3>
+            <p>Owned and opt-in contributed lots stay separate, licensed, and revocable by design.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Continuously checked</h3>
+            <p>The corpus SLA re-runs proofs, validates schemas, and catches packaged-data drift.</p>
+          </article>
+        </div>
+        <div class="honesty-note">
+          <strong>What Brainblast does—and does not do</strong>
+          <p>
+            Brainblast supplies verifiable, RL-grade data and evals that a lab can plug into its own
+            training loop. Brainblast does not run a buyer's gradient updates or claim to train models itself.
+          </p>
+        </div>
+      </section>
+
       <div class="ticker" aria-hidden="true">
-        <span>RESEARCH · PREVENT · VERIFY · COMPOUND · SOLANA · AGENTS · GUARDRAILS ·</span>
+        <span>CAPTURE · VERIFY · LICENSE · EVALUATE · CONTRIBUTE · COMPOUND ·</span>
       </div>
 
       <section class="install-section" id="install" aria-labelledby="install-title">
@@ -310,17 +443,18 @@
         </div>
       </section>
 
-      <section class="evolved-section" id="evolved" aria-labelledby="evolved-title">
+      <section class="evolved-section" id="platform" aria-labelledby="evolved-title">
         <div class="evolved-aura" aria-hidden="true"></div>
         <div class="evolved-inner">
           <div class="section-heading">
-            <p class="eyebrow">Brainblast Evolved</p>
-            <h2 id="evolved-title">The fault-prevention layer is becoming an AI training-data platform.</h2>
+            <p class="eyebrow">The platform beneath the market</p>
+            <h2 id="evolved-title">Fault prevention now compounds into verified data.</h2>
             <p>
               Every time <code class="inline-code">brainblast fix --apply</code> confirms a repair — the original
               test failing on the broken code and passing on the fix — it manufactures the scarcest artifact in the
               AI training-data market: a machine-verified, version-pinned, reproducible record of a real security
-              failure and its proven fix. We're building the infrastructure to capture, license, and stream it at scale.
+              failure and its proven fix. The capture, packaging, eval, ingest, and corpus-integrity foundations are
+              running today; supply at scale, settlement rails, and marketplace delivery are the next layer.
             </p>
           </div>
 
@@ -442,12 +576,12 @@
                   <p>First consented user VTIs flowing; first $BRAIN data dividend paid.</p>
                 </div>
               </li>
-              <li class="roadmap-stage is-todo">
+              <li class="roadmap-stage is-progress">
                 <div class="roadmap-node" aria-hidden="true"></div>
                 <div class="roadmap-body">
                   <div class="roadmap-stageline">
                     <span class="roadmap-num">Stage 3</span>
-                    <span class="roadmap-status">Not started</span>
+                    <span class="roadmap-status">In progress</span>
                   </div>
                   <h4>The data factory at scale</h4>
                   <p>Continuous VTI production across N≥50 SDKs at a quality SLA.</p>
@@ -492,8 +626,9 @@
               </span>
             </h2>
             <p>
-              The $BRAIN token drives the coding knowledge economy on Solana. Trading fees help
-              fund development, buybacks, and burns.
+              $BRAIN is designed as the marketplace's access, incentive, and quality layer:
+              discounted data access for buyers, bonded contributions for suppliers, and planned
+              contributor rewards as verified data is used.
             </p>
             <p class="contract-address">CA: 7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump</p>
           </div>
@@ -507,13 +642,53 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="footer">
       <img src="assets/brainblast_centered.png" alt="brainblast" />
       <span>© 2026 brainblast AI. All Rights Reserved.</span>
-      <a href="https://github.com/DSB-117/brainblast">brainblast GitHub</a>
+      <div class="footer-actions">
+        <a class="footer-github" href="https://github.com/DSB-117/brainblast">brainblast GitHub</a>
+        <nav class="social-links" aria-label="Brainblast social links">
+          <a
+            class="social-link"
+            href="https://x.com/brainblast_ai"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Brainblast on X"
+            title="X"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" />
+            </svg>
+          </a>
+          <a
+            class="social-link"
+            href="https://t.me/brainblastAI"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Brainblast on Telegram"
+            title="Telegram"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            </svg>
+          </a>
+          <a
+            class="social-link"
+            href="https://discord.gg/nn5WRfyu43"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Join Brainblast on Discord"
+            title="Discord"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.28 18.28 0 0 0-5.487 0c-.163-.394-.406-.875-.617-1.25a.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.028C.533 9.046-.319 13.58.099 18.058a.082.082 0 0 0 .031.056c2.053 1.508 4.041 2.423 5.993 3.03a.078.078 0 0 0 .084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 12.3 12.3 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.007.128 12.3 12.3 0 0 1-1.873.891.077.077 0 0 0-.041.107c.361.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029c1.961-.607 3.95-1.522 6.002-3.03a.077.077 0 0 0 .032-.055c.5-5.177-.839-9.674-3.549-13.66a.061.061 0 0 0-.031-.029zM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.419s.956-2.419 2.157-2.419c1.211 0 2.176 1.096 2.157 2.419 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.086-2.157-2.419s.955-2.419 2.157-2.419c1.211 0 2.176 1.096 2.157 2.419 0 1.333-.946 2.419-2.157 2.419z" />
+            </svg>
+          </a>
+        </nav>
+      </div>
     </footer>
 
     <div class="toast" data-toast role="status" aria-live="polite">Copied</div>
-    <script src="script.js"></script>
+    <script src="script.js?v=marketplace-1"></script>
   </body>
 </html>
