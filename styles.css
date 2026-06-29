@@ -95,7 +95,7 @@ p {
 }
 
 h1 {
-  font-size: clamp(3.8rem, 7.4vw, 7.5rem);
+  font-size: clamp(3.8rem, 5.1vw, 5rem);
   letter-spacing: 0;
   line-height: 0.9;
   margin-bottom: 26px;
