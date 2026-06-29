@@ -101,7 +101,7 @@ if (scanCard) {
   const ladder = root.querySelector("[data-roadmap-ladder]");
   const meta = root.querySelector("[data-roadmap-meta]");
   const RAW_URL =
-    "https://raw.githubusercontent.com/DSB-117/brainblast/training-data/ROADMAP-TRAINING-DATA.md";
+    "https://raw.githubusercontent.com/DSB-117/brainblast/main/ROADMAP-TRAINING-DATA.md";
 
   // Maps the markdown status glyphs to our CSS state + label.
   const STATUS = {
@@ -123,20 +123,36 @@ if (scanCard) {
 
   function parseStages(md) {
     const stages = [];
-    const rows = md.split("\n").filter((l) => /^\|\s*\*\*\d/.test(l));
+    const roadmapSection = md.split(/^## Roadmap at a glance\s*$/m)[1]?.split(/^---\s*$/m)[0] || "";
+    const rows = roadmapSection.split("\n").filter((line) => /^\|\s*\*\*\d+/.test(line));
     rows.forEach((row) => {
-      const cells = row.split("|").map((c) => c.trim());
-      // cells: ["", stage, theme, milestone, timing, ""]
-      if (cells.length < 5) return;
-      const stageCell = cells[1];
+      const cells = row
+        .split("|")
+        .slice(1, -1)
+        .map((cell) => cell.trim());
+      if (cells.length < 3) return;
+
+      // Current table: Stage | Theme | Engineering | What's left | Exit milestone.
+      // The older table stored the status glyph inside the Stage cell, so retain
+      // compatibility in case the roadmap format is rolled back.
+      const isCurrentFormat = cells.length >= 5;
+      const stageCell = cells[0];
+      const statusCell = isCurrentFormat ? cells[2] : cells[0];
       const numMatch = stageCell.match(/(\d+)/);
-      const glyph = Object.keys(STATUS).find((g) => stageCell.includes(g));
+      const glyph = Object.keys(STATUS).find((g) => statusCell.includes(g));
       if (!numMatch || !glyph) return;
+
+      const statusText = clean(statusCell.replace(glyph, ""));
+      const statusLabel = statusText
+        ? statusText.charAt(0).toUpperCase() + statusText.slice(1)
+        : STATUS[glyph].label;
+
       stages.push({
         num: numMatch[1],
-        status: STATUS[glyph],
-        theme: clean(cells[2]),
-        milestone: clean(cells[3]),
+        status: { ...STATUS[glyph], label: statusLabel },
+        theme: clean(cells[1]),
+        remaining: isCurrentFormat ? clean(cells[3]) : "",
+        milestone: clean(isCurrentFormat ? cells[4] : cells[2]),
       });
     });
     return stages;
@@ -163,6 +179,7 @@ if (scanCard) {
             <span class="roadmap-status">${esc(s.status.label)}</span>
           </div>
           <h4>${esc(s.theme)}</h4>
+          ${s.remaining && s.remaining !== "—" ? `<p class="roadmap-remaining"><strong>What's left:</strong> ${esc(s.remaining)}</p>` : ""}
           <p>${esc(s.milestone)}</p>
         </div>
       </li>`
@@ -170,29 +187,51 @@ if (scanCard) {
       .join("");
   }
 
-  fetch(RAW_URL, { cache: "no-store" })
-    .then((res) => {
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res.text();
-    })
-    .then((md) => {
-      const stages = parseStages(md);
-      if (stages.length) render(stages);
+  let syncInFlight = false;
+  let hasSynced = false;
 
-      const { updated, anchor } = parseMeta(md);
-      if (meta && (updated || anchor)) {
-        const bits = [];
-        if (updated) bits.push(`Updated ${updated}`);
-        if (anchor) bits.push(`anchored at <code>${esc(anchor)}</code>`);
-        meta.innerHTML = `${bits.join(" · ")} · synced from <code>training-data</code>`;
-      }
-    })
-    .catch(() => {
-      // Offline / fetch blocked: keep the static fallback markup already in the DOM.
-      if (meta) {
-        meta.innerHTML = "Showing last known roadmap · view live on <code>GitHub</code>";
-      }
-    });
+  function syncRoadmap() {
+    if (syncInFlight) return;
+    syncInFlight = true;
+
+    fetch(`${RAW_URL}?refresh=${Date.now()}`, { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.text();
+      })
+      .then((md) => {
+        const stages = parseStages(md);
+        if (stages.length < 6) throw new Error("roadmap table could not be parsed");
+        render(stages);
+
+        const { updated, anchor } = parseMeta(md);
+        if (meta && (updated || anchor)) {
+          const bits = [];
+          if (updated) bits.push(`Updated ${updated}`);
+          if (anchor) bits.push(`anchored at <code>${esc(anchor)}</code>`);
+          meta.innerHTML = `${bits.join(" · ")} · synced live from <code>main</code>`;
+        }
+        hasSynced = true;
+      })
+      .catch(() => {
+        // Keep the last good live result during a transient failure. On first-load
+        // failure, the static fallback remains visible and clearly identified.
+        if (!hasSynced && meta) {
+          meta.innerHTML = "Showing last known roadmap · live source: <code>GitHub main</code>";
+        }
+      })
+      .finally(() => {
+        syncInFlight = false;
+      });
+  }
+
+  syncRoadmap();
+  window.setInterval(() => {
+    if (!document.hidden) syncRoadmap();
+  }, 5 * 60 * 1000);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) syncRoadmap();
+  });
 })();
 
 /* ── HERO CANVAS — NEURAL NETWORK ── */

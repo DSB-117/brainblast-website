@@ -1914,6 +1914,16 @@ p {
   max-width: 760px;
 }
 
+.roadmap-body .roadmap-remaining {
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  margin-bottom: 8px;
+}
+
+.roadmap-remaining strong {
+  color: var(--cyan);
+}
+
 /* status theming */
 .roadmap-stage.is-shipped .roadmap-node {
   background: var(--green);
