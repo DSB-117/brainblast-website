@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="assets/brainblast_icon.png" />
     <link rel="preload" href="assets/brainblast_centered.png" as="image" />
     <link rel="preload" href="assets/solana-ai-mural-banner.jpg" as="image" />
-    <link rel="stylesheet" href="styles.css?v=roadmap-main-1" />
+    <link rel="stylesheet" href="styles.css?v=beta-waitlist-1" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -53,11 +53,47 @@
         <div class="hero-inner">
           <div class="hero-copy">
             <p class="eyebrow">Fault prevention, evolved into training data</p>
-            <h1 id="hero-title">Verified training data for AI that writes code.</h1>
+            <h1 id="hero-title">Machine verifiable training data for AI</h1>
             <p class="hero-lede">
               Brainblast turns confirmed integration failures into fresh, version-pinned
               error→fix→test→proof records for model training and evaluation.
             </p>
+            <!-- Formspree endpoint doubles as a standard HTML fallback if JavaScript is unavailable. -->
+            <form
+              id="beta-waitlist"
+              class="waitlist-form"
+              data-waitlist-form
+              action="https://formspree.io/f/mykqpadz"
+              method="post"
+              aria-labelledby="waitlist-title"
+            >
+              <input type="hidden" name="source" value="Brainblast website hero" />
+              <div class="waitlist-heading">
+                <span class="waitlist-chip">Private beta</span>
+                <div>
+                  <h2 id="waitlist-title">Join the beta waitlist</h2>
+                  <p>Get early marketplace access and product updates.</p>
+                </div>
+              </div>
+              <div class="waitlist-field">
+                <label class="sr-only" for="waitlist-email">Email address</label>
+                <input
+                  id="waitlist-email"
+                  name="email"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  placeholder="you@company.com"
+                  aria-describedby="waitlist-note waitlist-status"
+                  required
+                />
+                <button type="submit">Join waitlist</button>
+              </div>
+              <div class="waitlist-feedback">
+                <p class="waitlist-note" id="waitlist-note">Beta invitations are limited. No spam.</p>
+                <p class="waitlist-status" id="waitlist-status" data-waitlist-status aria-live="polite"></p>
+              </div>
+            </form>
             <div class="hero-actions" aria-label="Primary actions">
               <a class="button button-primary" href="#marketplace">Explore the marketplace</a>
               <a
@@ -694,6 +730,6 @@
     </footer>
 
     <div class="toast" data-toast role="status" aria-live="polite">Copied</div>
-    <script src="script.js?v=roadmap-main-2"></script>
+    <script src="script.js?v=beta-waitlist-2"></script>
   </body>
 </html>
