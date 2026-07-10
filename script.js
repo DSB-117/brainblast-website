@@ -60,64 +60,6 @@ copyButtons.forEach((button) => {
   });
 });
 
-/* ── BETA WAITLIST ── */
-const waitlistForm = document.querySelector("[data-waitlist-form]");
-
-if (waitlistForm) {
-  const status = waitlistForm.querySelector("[data-waitlist-status]");
-  const submitButton = waitlistForm.querySelector('button[type="submit"]');
-  const endpoint = waitlistForm.action;
-
-  const setWaitlistStatus = (message, state = "") => {
-    status.textContent = message;
-    status.classList.toggle("is-success", state === "success");
-    status.classList.toggle("is-error", state === "error");
-  };
-
-  waitlistForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    setWaitlistStatus("");
-
-    if (!waitlistForm.reportValidity()) return;
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Joining…";
-    waitlistForm.setAttribute("aria-busy", "true");
-
-    try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        body: new FormData(waitlistForm),
-        headers: { Accept: "application/json" },
-      });
-      const result = await response.json().catch(() => null);
-
-      if (!response.ok) {
-        const message = Array.isArray(result?.errors)
-          ? result.errors
-              .map((error) => error?.message)
-              .filter(Boolean)
-              .join(" ")
-          : "";
-        throw new Error(message || `HTTP ${response.status}`);
-      }
-
-      waitlistForm.reset();
-      setWaitlistStatus("You're on the list. We'll be in touch.", "success");
-    } catch (error) {
-      const message =
-        error instanceof Error && error.message && !error.message.startsWith("HTTP ")
-          ? error.message
-          : "Could not join right now. Please try again shortly.";
-      setWaitlistStatus(message, "error");
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = "Join waitlist";
-      waitlistForm.removeAttribute("aria-busy");
-    }
-  });
-}
-
 /* ── SCROLL REVEAL ── */
 const revealObserver = new IntersectionObserver(
   (entries) => {
