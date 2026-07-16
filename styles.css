@@ -2261,9 +2261,14 @@ section {
 
 .footer-links {
   display: flex;
-  gap: 26px;
+  flex-wrap: wrap;
+  gap: 12px 26px;
   font-size: 14px;
   color: var(--ink-soft);
+}
+
+.footer-links a {
+  white-space: nowrap;
 }
 
 .footer-links a:hover {
