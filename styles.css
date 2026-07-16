@@ -2275,6 +2275,24 @@ section {
   color: var(--teal);
 }
 
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-socials a {
+  color: var(--ink-soft);
+  display: grid;
+  place-items: center;
+  transition: color 0.25s, transform 0.25s;
+}
+
+.footer-socials a:hover {
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
 .footer-copy {
   font-size: 13px;
   color: var(--ink-dim);
