@@ -5,505 +5,675 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Brainblast catches silent SDK integration traps AI coding agents ship, turns them into proof-gated training data, and streams that immunity back into every agent."
+      content="brainblast is the guard layer for AI coding agents. It predicts silent failures, proves they're gone, and compounds every catch into the world's only verifiable code-security corpus."
     />
-    <title>brainblast | Proof-gated SDK immunity for AI agents</title>
+    <meta property="og:title" content="brainblast | AI-written code, correct by default" />
+    <meta
+      property="og:description"
+      content="The guard layer for coding agents on Solana. Predict the silent failure. Prove it's gone. Keep watching."
+    />
+    <meta property="og:image" content="assets/brainblast.jpg" />
+    <title>brainblast | AI-written code, correct by default</title>
     <link rel="icon" href="assets/brainblast_icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/brainblast_icon.png" />
-    <link rel="preload" href="assets/brainblast_centered.png" as="image" />
-    <link rel="preload" href="assets/solana-ai-mural-banner.jpg" as="image" />
-    <link rel="stylesheet" href="styles.css?v=brainblast-today-1" />
+
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="assets/brainblast_icon.png" as="image" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-loading>
+    <!-- ══════════ BOOT OVERLAY ══════════ -->
+    <div class="boot" data-boot aria-hidden="true">
+      <div class="boot-inner">
+        <img class="boot-mark" src="assets/brainblast_icon.png" alt="" />
+        <div class="boot-lines" data-boot-lines></div>
+        <div class="boot-bar"><span data-boot-bar></span></div>
+      </div>
+    </div>
+
+    <!-- ══════════ CURSOR / PROGRESS ══════════ -->
+    <div class="cursor-dot" data-cursor aria-hidden="true"></div>
+    <div class="scroll-progress" data-progress aria-hidden="true"></div>
+
+    <!-- ══════════ HEADER ══════════ -->
     <header class="site-header" data-header>
-      <a class="brand-mark" href="#top" aria-label="brainblast home">
-        <img src="assets/brainblast_centered.png" alt="brainblast" />
+      <a class="brand" href="#top" aria-label="brainblast home">
+        <img src="assets/brainblast_icon.png" alt="" />
+        <span>brainblast</span>
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#product">Product</a>
-        <a href="#hivemind">HiveMind</a>
-        <a href="#registry">Registry</a>
-        <a href="#install">Install</a>
+        <a href="#loop" data-nav-link>Product</a>
+        <a href="#corpus" data-nav-link>Corpus</a>
+        <a href="#roadmap" data-nav-link>Roadmap</a>
+        <a href="#token" data-nav-link>$BRAIN</a>
       </nav>
-      <a class="header-cta" href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">
-        Open registry
-      </a>
-      <button class="menu-button" type="button" data-menu-button aria-label="Open menu">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-right">
+        <a
+          class="gh-link"
+          href="https://github.com/DSB-117/brainblast"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="brainblast on GitHub"
+        >
+          <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
+            />
+          </svg>
+        </a>
+        <a
+          class="button button-ghost header-cta"
+          href="https://registry.brainblast.tech"
+          target="_blank"
+          rel="noreferrer"
+          data-magnetic
+        >
+          <span>Registry</span>
+        </a>
+        <a class="button button-primary header-cta" href="#install" data-magnetic>
+          <span>Install</span>
+        </a>
+        <button class="menu-button" type="button" data-menu-button aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
     </header>
 
     <nav class="mobile-nav" data-mobile-nav aria-label="Mobile navigation">
-      <a href="#product">Product</a>
-      <a href="#hivemind">HiveMind</a>
-      <a href="#registry">Registry</a>
-      <a href="#install">Install</a>
+      <a href="#loop">Product</a>
+      <a href="#corpus">Corpus</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">Registry</a>
+      <a href="#token">$BRAIN</a>
+      <a href="#install">Install</a>
     </nav>
 
     <main id="top">
-      <section class="hero hero-v2" aria-labelledby="hero-title">
-        <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
-          <source src="assets/brainblast_banner.mp4" type="video/mp4" />
-        </video>
-        <div class="mural-glow" aria-hidden="true"></div>
-        <div class="hero-shade" aria-hidden="true"></div>
+      <!-- ══════════ HERO ══════════ -->
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <canvas class="hero-canvas" data-brain-canvas aria-hidden="true"></canvas>
+        <div class="hero-grid-lines" aria-hidden="true"></div>
+        <div class="hero-vignette" aria-hidden="true"></div>
 
-        <div class="hero-inner hero-v2-inner">
-          <div class="hero-copy">
-            <p class="eyebrow">Live SDK-footgun immunity for AI coding agents</p>
-            <h1 id="hero-title">Learned once, shared everywhere.</h1>
-            <p class="hero-lede">
-              Brainblast catches the silent, catastrophic bugs AI coding agents ship when they
-              integrate external SDKs, proves the fix RED→GREEN, then streams that immunity back
-              into your agents in real time.
+        <div class="hero-inner">
+          <p class="hero-eyebrow" data-hero-eyebrow>
+            <span class="pulse-dot" aria-hidden="true"></span>
+            The guard layer for coding agents
+          </p>
+          <h1 class="hero-title" id="hero-title" data-hero-title>
+            <span class="line">AI-written code,</span>
+            <span class="line line-accent"><span data-scramble>correct by default.</span></span>
+          </h1>
+          <p class="hero-sub" data-hero-sub>
+            Agents ship silent, money-losing faults that even frontier models wave through.
+            brainblast researches every component from live sources, predicts the failure,
+            proves it's gone, and never forgets a catch.
+          </p>
+          <div class="hero-actions" data-hero-actions>
+            <a class="button button-primary" href="#install" data-magnetic>
+              <span>Install brainblast</span>
+            </a>
+            <a class="button button-ghost" href="#demo" data-magnetic>
+              <span>Watch it catch a fault</span>
+            </a>
+          </div>
+
+          <div class="hero-stats" data-hero-stats aria-label="brainblast by the numbers">
+            <div class="hero-stat">
+              <strong><span data-count="4183">0</span></strong>
+              <span>proven footguns, RED→GREEN</span>
+            </div>
+            <div class="hero-stat">
+              <strong><span data-count="154">0</span></strong>
+              <span>SDKs covered</span>
+            </div>
+            <div class="hero-stat">
+              <strong><span data-count="29">0</span></strong>
+              <span>deterministic checkers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-scroll-hint" aria-hidden="true">
+          <span>scroll</span>
+          <div class="hint-line"></div>
+        </div>
+      </section>
+
+      <!-- ══════════ FAULT MARQUEE ══════════ -->
+      <section class="marquee" aria-label="Faults brainblast prevents">
+        <div class="marquee-track" data-marquee>
+          <span>Silent zero-revenue launches</span><i>✦</i>
+          <span>Forged Stripe webhooks</span><i>✦</i>
+          <span>Auth bypasses</span><i>✦</i>
+          <span>Wrong SDK assumptions</span><i>✦</i>
+          <span>Stale oracle prices</span><i>✦</i>
+          <span>Missing creator fee wallets</span><i>✦</i>
+          <span>Slippage footguns</span><i>✦</i>
+          <span>Rate-limit surprises</span><i>✦</i>
+        </div>
+      </section>
+
+      <!-- ══════════ THE LOOP / PINNED DECK ══════════ -->
+      <section class="loop-section" id="loop" aria-labelledby="loop-title">
+        <div class="loop-sticky" data-loop-sticky>
+          <div class="loop-head">
+            <p class="eyebrow">The loop</p>
+            <h2 class="section-title" id="loop-title" data-split>
+              Predict. Enforce. Watch. Compound.
+            </h2>
+          </div>
+
+          <div class="loop-stage">
+            <div class="loop-deck" data-loop-deck aria-hidden="false">
+              <article class="loop-card" data-loop-card="0">
+                <div class="loop-card-glow"></div>
+                <header><span class="loop-num">01</span><span class="loop-tag">live</span></header>
+                <h3>Predict</h3>
+                <div class="loop-card-visual predict-visual">
+                  <div class="pv-doc">
+                    <span></span><span></span><span></span><span class="hl"></span><span></span>
+                  </div>
+                  <svg class="pv-web" viewBox="0 0 200 120" aria-hidden="true">
+                    <path d="M30 60 L100 20 M30 60 L100 60 M30 60 L100 100 M100 20 L170 40 M100 60 L170 40 M100 100 L170 80 M100 60 L170 80" />
+                    <circle cx="30" cy="60" r="5" class="hub" />
+                    <circle cx="100" cy="20" r="4" /><circle cx="100" cy="60" r="4" /><circle cx="100" cy="100" r="4" />
+                    <circle cx="170" cy="40" r="4" /><circle cx="170" cy="80" r="4" />
+                  </svg>
+                </div>
+              </article>
+
+              <article class="loop-card" data-loop-card="1">
+                <div class="loop-card-glow"></div>
+                <header><span class="loop-num">02</span><span class="loop-tag">live</span></header>
+                <h3>Enforce</h3>
+                <div class="loop-card-visual enforce-visual">
+                  <div class="ev-gate">
+                    <span class="ev-check pass">✓ webhook.verify · raw body</span>
+                    <span class="ev-check pass">✓ fee wallet present</span>
+                    <span class="ev-check fail">✕ token aud/iss unverified</span>
+                    <span class="ev-exit">exit code 1 · build blocked</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="loop-card" data-loop-card="2">
+                <div class="loop-card-glow"></div>
+                <header><span class="loop-num">03</span><span class="loop-tag">next</span></header>
+                <h3>Watch</h3>
+                <div class="loop-card-visual watch-visual">
+                  <div class="wv-radar">
+                    <div class="wv-sweep"></div>
+                    <span class="wv-blip" style="--x: 62%; --y: 30%"></span>
+                    <span class="wv-blip" style="--x: 30%; --y: 62%; animation-delay: 1.1s"></span>
+                    <span class="wv-blip" style="--x: 70%; --y: 68%; animation-delay: 2.2s"></span>
+                  </div>
+                  <span class="wv-label">advisory published → gate reopened</span>
+                </div>
+              </article>
+
+              <article class="loop-card" data-loop-card="3">
+                <div class="loop-card-glow"></div>
+                <header><span class="loop-num">04</span><span class="loop-tag">compounding</span></header>
+                <h3>Compound</h3>
+                <div class="loop-card-visual compound-visual">
+                  <div class="cv-grid" data-compound-grid></div>
+                  <span class="cv-label">every catch → a proven VTI in the corpus</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="loop-copy">
+              <div class="loop-copy-item" data-loop-copy="0">
+                <h4>Research before a single line is written</h4>
+                <p>
+                  Point it at your requirements. brainblast inventories every external
+                  component (SDKs, APIs, auth providers, chains) and researches each one
+                  from live official sources. Facts are fetched, never recalled. Out comes a
+                  cited component map, a risk heatmap, and <code>report.json</code>.
+                </p>
+              </div>
+              <div class="loop-copy-item" data-loop-copy="1">
+                <h4>Turn risk into an exit code</h4>
+                <p>
+                  A deterministic auditor with 29 checkers verifies the generated code
+                  against the research. <code>/brainblast-verify</code> proves each predicted
+                  fault is gone, and <code>--ci</code> mode fails the build on unresolved
+                  CRITICAL or HIGH risks. No vibes. A gate.
+                </p>
+              </div>
+              <div class="loop-copy-item" data-loop-copy="2">
+                <h4>Dependencies drift. The gate reopens.</h4>
+                <p>
+                  When an advisory lands or a pinned dependency changes, brainblast
+                  re-researches the surface and reopens the gate before the drift becomes an
+                  incident. Your research report stays alive as your stack moves.
+                </p>
+              </div>
+              <div class="loop-copy-item" data-loop-copy="3">
+                <h4>Every catch makes every agent smarter</h4>
+                <p>
+                  Each proven catch becomes a verifiable training instance: RED code, GREEN
+                  fix, reproducible proof. The corpus feeds back into the tool, syncs across
+                  the HiveMind, and pays its contributors in $BRAIN. A retrieval tool can't
+                  copy a proof.
+                </p>
+              </div>
+
+              <div class="loop-progress" aria-hidden="true">
+                <span data-loop-dot="0" class="is-active"></span>
+                <span data-loop-dot="1"></span>
+                <span data-loop-dot="2"></span>
+                <span data-loop-dot="3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ TERMINAL DEMO ══════════ -->
+      <section class="demo-section" id="demo" aria-labelledby="demo-title">
+        <div class="section-heading">
+          <p class="eyebrow">Live fire</p>
+          <h2 class="section-title" id="demo-title" data-split>
+            The fault it catches was about to cost you the launch.
+          </h2>
+          <p class="section-sub">
+            A real class of catch: a token launch flow speced without a creator fee wallet.
+            The agent would have shipped it. Trading fees route to nowhere. Nobody notices
+            until the revenue never arrives.
+          </p>
+        </div>
+
+        <div class="terminal" data-terminal data-tilt>
+          <div class="terminal-bar">
+            <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+            <span class="terminal-title">agent session · pre-flight</span>
+            <button class="terminal-replay" type="button" data-replay>↻ replay</button>
+          </div>
+          <div class="terminal-body" data-terminal-body aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ══════════ CORPUS ══════════ -->
+      <section class="corpus-section" id="corpus" aria-labelledby="corpus-title">
+        <div class="corpus-bg" aria-hidden="true"></div>
+        <div class="section-heading">
+          <p class="eyebrow">The moat</p>
+          <h2 class="section-title" id="corpus-title" data-split>
+            The only verifiable code-security data asset in the world.
+          </h2>
+          <p class="section-sub">
+            Every entry is a proven pair: broken code that demonstrably fails, fixed code
+            that demonstrably passes, and the reproducible proof between them. RED→GREEN,
+            every time. Benchmarks guess. This corpus proves.
+          </p>
+        </div>
+
+        <div class="corpus-stats" data-corpus-stats>
+          <div class="corpus-stat" data-tilt>
+            <strong><span data-count="4183">0</span></strong>
+            <span>proven VTIs</span>
+            <em>verifiable training instances, each RED→GREEN</em>
+          </div>
+          <div class="corpus-stat" data-tilt>
+            <strong><span data-count="154">0</span></strong>
+            <span>SDKs covered</span>
+            <em>real integration surfaces, not toy repos</em>
+          </div>
+          <div class="corpus-stat" data-tilt>
+            <strong><span data-count="9">0</span></strong>
+            <span>fault classes</span>
+            <em>from auth bypass to oracle staleness</em>
+          </div>
+          <div class="corpus-stat" data-tilt>
+            <strong><span data-count="29">0</span></strong>
+            <span>checkers</span>
+            <em>deterministic, multi-language, self-extending</em>
+          </div>
+        </div>
+
+        <div class="corpus-viz" data-corpus-viz aria-hidden="true"></div>
+
+        <div class="corpus-cards">
+          <article class="corpus-card" data-tilt>
+            <span class="cc-icon">◈</span>
+            <h3>HiveMind federation</h3>
+            <p>
+              A federated second brain across machines and teams. A footgun proven on one
+              node immunizes every node: <code>outbreak</code> alerts propagate new catches
+              across the hive in real time.
             </p>
+          </article>
+          <article class="corpus-card" data-tilt>
+            <span class="cc-icon">◇</span>
+            <h3>Marketplace, live</h3>
+            <p>
+              Self-serve licensing in SOL, USDC, or $BRAIN with signed-grant entitlements
+              and metered usage. Free sample live on Hugging Face. Train on proof, not
+              scrapes.
+            </p>
+          </article>
+          <article class="corpus-card" data-tilt>
+            <span class="cc-icon">◆</span>
+            <h3>Score your model</h3>
+            <p>
+              An eval harness that measures what your model waves through. Bring your model,
+              get your number. Even frontier models ship silent footguns a bare agent
+              misses.
+            </p>
+          </article>
+          <a
+            class="corpus-card corpus-card-link"
+            href="https://clawhub.ai/dsb-117/skills/brainblast-fleet"
+            target="_blank"
+            rel="noreferrer"
+            data-tilt
+          >
+            <span class="cc-icon">⬡</span>
+            <h3>Join the fleet</h3>
+            <p>
+              The Brainblast Fleet skill turns an OpenClaw agent into an autonomous scout:
+              it discovers footguns in public SDKs, proves each one RED→GREEN, and submits
+              it to the open corpus. Unattended, on a schedule.
+            </p>
+            <span class="cc-cta">Get the skill on ClawHub <i aria-hidden="true">↗</i></span>
+          </a>
+        </div>
+      </section>
 
-            <div class="hero-actions" aria-label="Primary actions">
-              <a class="button button-primary" href="#install">Run it now</a>
-              <a class="button button-secondary" href="#hivemind">See HiveMind</a>
+      <!-- ══════════ LIVE ROADMAP ══════════ -->
+      <section class="roadmap-section" id="roadmap" aria-labelledby="roadmap-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">
+              <span class="live-badge" data-roadmap-status>
+                <span class="pulse-dot"></span> LIVE · synced from GitHub
+              </span>
+            </p>
+            <h2 class="section-title" id="roadmap-title" data-split>The roadmap, unabridged.</h2>
+            <p class="section-sub">
+              Rendered directly from
               <a
-                class="button button-secondary"
-                href="https://registry.brainblast.tech"
+                href="https://github.com/DSB-117/brainblast/blob/main/ROADMAP.md"
                 target="_blank"
                 rel="noreferrer"
-              >Browse public corpus</a>
-            </div>
-
-            <div class="hero-stats" aria-label="Brainblast live state">
-              <div>
-                <strong>4,024</strong>
-                <span>proven trap instances</span>
-              </div>
-              <div>
-                <strong>133</strong>
-                <span>SDKs covered</span>
-              </div>
-            </div>
-
-          </div>
-
-          <aside class="command-console" aria-label="Brainblast terminal preview">
-            <div class="console-bar">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="console-body">
-              <p><span>$</span> npx brainblast .</p>
-              <div class="scan-result is-critical">
-                <strong>CRITICAL</strong>
-                <span>Stripe webhook accepts forged paid events when parsed body is verified.</span>
-              </div>
-              <div class="scan-result is-high">
-                <strong>HIGH</strong>
-                <span>Privy access token decoded without ES256 signature + aud/iss checks.</span>
-              </div>
-              <p><span>$</span> brainblast hive brief --inject</p>
-              <div class="scan-result is-safe">
-                <strong>IMMUNE</strong>
-                <span>Known traps inserted into the next agent session.</span>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="proof-band" aria-label="Brainblast data guarantees">
-        <div class="proof-track">
-          <span>RED→GREEN proof-gated</span>
-          <span>Real-time public corpus</span>
-          <span>Exact SDK versions</span>
-          <span>Fresh traps models missed</span>
-          <span>Offline scanner</span>
-          <span>HiveMind shared memory</span>
-          <span>Open rule packs</span>
-          <span>No signup for sample tier</span>
-          <span>RED→GREEN proof-gated</span>
-          <span>Real-time public corpus</span>
-          <span>Exact SDK versions</span>
-          <span>Fresh traps models missed</span>
-          <span>Offline scanner</span>
-          <span>HiveMind shared memory</span>
-          <span>Open rule packs</span>
-          <span>No signup for sample tier</span>
-        </div>
-      </section>
-
-      <section class="thesis-section" aria-labelledby="thesis-title">
-        <div class="thesis-grid">
-          <div>
-            <p class="eyebrow">What Brainblast is today</p>
-            <h2 id="thesis-title">A proof-gated immune system for SDK mistakes.</h2>
-          </div>
-          <p>
-            Most agent safety tools warn from memory. Brainblast manufactures evidence:
-            the failing code, the fixed code, the regression test, the source trail, and the
-            receipt that the fix actually moved from RED to GREEN. That evidence becomes both
-            trainable data and live protection.
-          </p>
-        </div>
-      </section>
-
-      <section class="product-section" id="product" aria-labelledby="product-title">
-        <div class="section-heading split">
-          <div>
-            <p class="eyebrow">Two halves, one data asset</p>
-            <h2 id="product-title">The factory finds traps. HiveMind makes agents immune.</h2>
-            <p>
-              Brainblast turns current integration failures into Verified Trap Instances, then
-              streams the resulting rules, proofs, and briefings back into local developer tools.
+                ><code>ROADMAP.md</code></a
+              >
+              on <code>main</code>, the single source of truth. What you read here is what
+              the repo says, fetched the moment you loaded this page.
             </p>
           </div>
-          <div class="market-status">
-            <span>Available today</span>
-            <strong>Free anonymous metadata + proofs</strong>
-            <small>Trainable fixtures are unlocked through lot-scoped paid grants.</small>
-          </div>
+          <div class="roadmap-meta" data-roadmap-meta></div>
         </div>
 
-        <div class="pillar-grid">
-          <article class="pillar-card">
-            <span>01 / Data engine</span>
-            <h3>The AI training-data marketplace</h3>
-            <p>
-              A marketplace for Verified Trap Instances: version-pinned
-              <code>error→fix→test→proof</code> records built for training, evals, and stack-specific
-              model hardening.
-            </p>
-            <ul>
-              <li>Thousands of proven traps across 130+ SDKs</li>
-              <li>Nine trap classes including auth-bypass and silent-zero-revenue</li>
-              <li>Lot-scoped licensing for Solana, EVM, auth, TLS, cloud storage, and more</li>
-            </ul>
-          </article>
+        <blockquote class="northstar" data-roadmap-northstar></blockquote>
 
-          <article class="pillar-card">
-            <span>02 / Consumption layer</span>
-            <h3>HiveMind shared memory</h3>
-            <p>
-              A machine-global brain at <code>~/.brainblast/hive</code> that every agent can query.
-              Fresh traps sync once, then every repo and agent on the machine can avoid them.
-            </p>
-            <ul>
-              <li>Stack-specific briefs ranked by dependency match</li>
-              <li>Write-time hook for Claude Code plus MCP and CLI checks for other agents</li>
-              <li>Team spaces with signed events and optional ACLs</li>
-            </ul>
-          </article>
-
-          <article class="pillar-card">
-            <span>03 / Enforcement</span>
-            <h3>Offline scanner + open rule packs</h3>
-            <p>
-              <code>npx brainblast .</code> runs locally with no hosted dependency. The scanner gates CI,
-              loads mirrored HiveMind packs, and emits a stable <code>report.json</code>.
-            </p>
-            <ul>
-              <li>22 vetted checker kinds</li>
-              <li>90+ rule packs across TS/JS, Rust/Anchor, Go, Solidity, and config</li>
-              <li>GitHub Action and MCP server support</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="registry-section" id="registry" aria-labelledby="registry-title">
-        <div class="registry-copy">
-          <p class="eyebrow">registry.brainblast.tech</p>
-          <h2 id="registry-title">A live feed of traps agents should not rediscover.</h2>
-          <p>
-            Anonymous access is real-time and free for every proven record’s metadata and
-            RED→GREEN receipt. Paid Standard and Scale grants unlock the trainable vulnerable and
-            fixed fixtures by licensed lot.
-          </p>
-          <div class="registry-actions">
-            <a class="button button-primary" href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">
-              Open registry
-            </a>
-            <a class="button button-secondary" href="#access">Compare access</a>
-          </div>
-        </div>
-        <div class="registry-panel" aria-label="Registry facts">
-          <div>
-            <span>Feed</span>
-            <strong>NDJSON with resumable cursor</strong>
-          </div>
-          <div>
-            <span>Trust</span>
-            <strong>ed25519 grants + hash-chained metering</strong>
-          </div>
-          <div>
-            <span>Freshness</span>
-            <strong>0-holdback public metadata</strong>
-          </div>
-          <div>
-            <span>Corpus</span>
-            <strong>337 critical, 2,249 high</strong>
+        <div class="roadmap-lanes" data-roadmap-lanes>
+          <div class="roadmap-loading" data-roadmap-loading>
+            <span class="spinner"></span> fetching ROADMAP.md from main…
           </div>
         </div>
       </section>
 
-      <section class="hivemind-section" id="hivemind" aria-labelledby="hivemind-title">
-        <div class="section-heading split">
-          <div>
-            <p class="eyebrow">HiveMind</p>
-            <h2 id="hivemind-title">The second brain your agents share.</h2>
-            <p>
-              HiveMind syncs live VTI deltas, mirrors verified rule packs, briefs each repo by its
-              dependencies, and pushes team fixes across machines in roughly a second.
-            </p>
-          </div>
-        </div>
-
-        <div class="hive-layout">
-          <div class="hive-flow" aria-label="HiveMind flow">
-            <article>
-              <span>Sync</span>
-              <strong>Pull live corpus + pinned rule packs</strong>
-            </article>
-            <article>
-              <span>Brief</span>
-              <strong>Inject stack-specific traps into AGENTS.md or CLAUDE.md</strong>
-            </article>
-            <article>
-              <span>Enforce</span>
-              <strong>Fail builds and flag just-written traps</strong>
-            </article>
-            <article>
-              <span>Federate</span>
-              <strong>Share confirmed fixes across repos, agents, and machines</strong>
-            </article>
-          </div>
-
-          <div class="terminal-card">
-            <div class="terminal-title">Try the live path</div>
-            <div class="terminal-command">
-              <code>npx brainblast .</code>
-              <button class="copy-button" type="button" data-copy="npx brainblast .">Copy</button>
-            </div>
-            <div class="terminal-command">
-              <code>brainblast hive sync</code>
-              <button class="copy-button" type="button" data-copy="brainblast hive sync">Copy</button>
-            </div>
-            <div class="terminal-command">
-              <code>brainblast hive brief --inject</code>
-              <button class="copy-button" type="button" data-copy="brainblast hive brief --inject">Copy</button>
-            </div>
-            <div class="terminal-command">
-              <code>brainblast hive hook install</code>
-              <button class="copy-button" type="button" data-copy="brainblast hive hook install">Copy</button>
-            </div>
-            <div class="terminal-command">
-              <code>brainblast hive space create</code>
-              <button class="copy-button" type="button" data-copy="brainblast hive space create">Copy</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="flywheel-section" aria-labelledby="flywheel-title">
+      <!-- ══════════ PARTNERS ══════════ -->
+      <section class="partners-section" id="partners" aria-labelledby="partners-title">
         <div class="section-heading">
-          <p class="eyebrow">The flywheel</p>
-          <h2 id="flywheel-title">Fresh failures become shared immunity.</h2>
+          <p class="eyebrow">Integration partners</p>
+          <h2 class="section-title" id="partners-title" data-split>
+            Built around real Solana product surfaces.
+          </h2>
         </div>
-        <div class="flywheel-grid">
-          <article>
-            <span>01</span>
-            <h3>Fleet discovers a real footgun</h3>
-            <p>Scout agents find popular repos using a target SDK and isolate a failure pattern.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Oracle proves RED→GREEN</h3>
-            <p>Static, compiler, executed, or differential checks prove the vulnerable and fixed states.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Registry streams the record</h3>
-            <p>The public feed publishes metadata and proof immediately; grants unlock trainable fixtures.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <h3>Agents stop repeating it</h3>
-            <p>HiveMind briefs, hooks, checks, and CI gates keep the same trap from shipping again.</p>
-          </article>
+        <div class="partner-grid">
+          <a
+            class="partner-card"
+            href="https://www.daemonide.tech/"
+            target="_blank"
+            rel="noreferrer"
+            data-tilt
+          >
+            <img src="assets/daemon-mark-white.png" alt="Daemon Terminal" />
+            <div>
+              <span>Product partner</span>
+              <h3>Daemon Terminal</h3>
+              <p>brainblast runs natively inside Daemon Terminal, the Cursor of Solana.</p>
+            </div>
+            <span class="partner-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="partner-card" href="https://ricomaps.fun/" target="_blank" rel="noreferrer" data-tilt>
+            <img src="assets/rico-favicon.png" alt="Rico Maps" />
+            <div>
+              <span>Product partner</span>
+              <h3>Rico Maps</h3>
+              <p>Rico Maps is wired into brainblast for advanced on-chain token intelligence.</p>
+            </div>
+            <span class="partner-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
       </section>
 
-      <section class="access-section" id="access" aria-labelledby="access-title">
+      <!-- ══════════ INSTALL ══════════ -->
+      <section class="install-section" id="install" aria-labelledby="install-title">
+        <div class="install-glow" aria-hidden="true"></div>
         <div class="section-heading">
-          <p class="eyebrow">Access model</p>
-          <h2 id="access-title">Free protection today. Paid trainable data by lot.</h2>
-          <p>
-            The developer-facing product stays practical: use the sample tier now, license trainable
-            payloads when you need fixtures for training or evaluation.
-          </p>
+          <p class="eyebrow">Sixty seconds to a guarded agent</p>
+          <h2 class="section-title" id="install-title" data-split>
+            Run the pre-flight before the agent writes the fault.
+          </h2>
         </div>
-        <div class="access-grid">
-          <article>
-            <span>Sample</span>
-            <h3>Free, anonymous, real-time</h3>
-            <p>Every proven record’s metadata and RED→GREEN receipt. No signup, no key, no freshness holdback.</p>
-          </article>
-          <article>
-            <span>Standard</span>
-            <h3>Licensed data lots</h3>
-            <p>Trainable vulnerable and fixed fixtures for selected lots like auth-sessions, Solana, EVM, or web-hardening.</p>
-          </article>
-          <article>
-            <span>Scale</span>
-            <h3>All lots + future lots</h3>
-            <p>Full corpus access for teams that want every lot, future updates, and fleet-scale evaluation coverage.</p>
-          </article>
-        </div>
-      </section>
 
-      <section class="trust-section" aria-labelledby="trust-title">
-        <div class="section-heading split">
-          <div>
-            <p class="eyebrow">Trust boundaries</p>
-            <h2 id="trust-title">Proof enters enforcement. Experience stays advisory.</h2>
-            <p>
-              Brainblast is deliberately local-first. Federation helps teams share experience, but no
-              shared belief enters the corpus or scanner until it is independently re-proven.
-            </p>
-          </div>
+        <div class="install-tabs" data-install-tabs role="tablist" aria-label="Install methods">
+          <button class="install-tab is-active" role="tab" aria-selected="true" data-install-tab="shell">
+            From your shell
+          </button>
+          <button class="install-tab" role="tab" aria-selected="false" data-install-tab="agent">
+            Tell your agent
+          </button>
+          <button class="install-tab" role="tab" aria-selected="false" data-install-tab="use">
+            After install
+          </button>
+          <button class="install-tab" role="tab" aria-selected="false" data-install-tab="fleet">
+            Fleet skill
+          </button>
         </div>
-        <div class="trust-grid-v2">
-          <article>
-            <h3>Nothing becomes shared memory without proof</h3>
-            <p>Bad guesses do not become everyone’s belief. The corpus requires reproducible RED→GREEN evidence.</p>
-          </article>
-          <article>
-            <h3>Enforcement has zero hosted dependency</h3>
-            <p>The scanner runs offline and loads pinned, mirrored rule packs. Registry sync improves freshness, not basic safety.</p>
-          </article>
-          <article>
-            <h3>Team spaces are capability-based</h3>
-            <p>Spaces use unguessable capability IDs, signed events, rotation, and optional signed ACL policies.</p>
-          </article>
-        </div>
-      </section>
 
-      <section class="install-section install-section-v2" id="install" aria-labelledby="install-title">
-        <div class="section-heading">
-          <p class="eyebrow">Install Brainblast</p>
-          <h2 id="install-title">Audit first. Then immunize the next agent session.</h2>
-        </div>
-        <div class="install-layout">
-          <article class="install-card large">
-            <span>Run the scanner</span>
-            <div class="command-block">
-              <code>npx brainblast .</code>
-              <button class="copy-button" type="button" data-copy="npx brainblast .">Copy</button>
-            </div>
-            <p>No install needed. Runs offline, emits a stable report, and catches known trap patterns now.</p>
-          </article>
-          <article class="install-card">
-            <span>Sync HiveMind</span>
-            <div class="command-block">
-              <code>brainblast hive sync</code>
-              <button class="copy-button" type="button" data-copy="brainblast hive sync">Copy</button>
-            </div>
-          </article>
-          <article class="install-card">
-            <span>Pre-immunize agents</span>
-            <div class="command-block">
-              <code>brainblast hive brief --inject</code>
-              <button class="copy-button" type="button" data-copy="brainblast hive brief --inject">Copy</button>
-            </div>
-          </article>
-          <article class="install-card">
-            <span>MCP</span>
-            <div class="command-block">
-              <code>{ "brainblast": { "command": "npx", "args": ["brainblast@latest", "mcp"] } }</code>
+        <div class="install-panels">
+          <div class="install-panel is-active" data-install-panel="shell" role="tabpanel">
+            <div class="command-block" data-tilt>
+              <code>curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v1.0.0/install.sh | sh</code>
               <button
                 class="copy-button"
                 type="button"
-                data-copy='{ "brainblast": { "command": "npx", "args": ["brainblast@latest", "mcp"] } }'
-              >Copy</button>
+                data-copy="curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v1.0.0/install.sh | sh"
+              >
+                copy
+              </button>
             </div>
-          </article>
+            <p class="install-note">Ships slash commands and adapters for Claude Code, OpenClaw, Codex, and generic agents, with tagged installer checksums.</p>
+          </div>
+          <div class="install-panel" data-install-panel="agent" role="tabpanel">
+            <div class="command-block prompt-block" data-tilt>
+              <code
+                >Install brainblast by running: curl -fsSL
+                https://raw.githubusercontent.com/DSB-117/brainblast/v1.0.0/install.sh | sh,
+                then run /brainblast requirements.md before implementation.</code
+              >
+              <button
+                class="copy-button"
+                type="button"
+                data-copy="Install brainblast by running: curl -fsSL https://raw.githubusercontent.com/DSB-117/brainblast/v1.0.0/install.sh | sh. Then run /brainblast requirements.md before implementation."
+              >
+                copy prompt
+              </button>
+            </div>
+            <p class="install-note">Paste this straight into your agent. It installs itself and runs the pre-flight.</p>
+          </div>
+          <div class="install-panel" data-install-panel="use" role="tabpanel">
+            <div class="command-block" data-tilt>
+              <code>/brainblast requirements.md</code>
+              <button class="copy-button" type="button" data-copy="/brainblast requirements.md">copy</button>
+            </div>
+            <div class="command-block" data-tilt>
+              <code>/brainblast requirements.md --fresh</code>
+              <button class="copy-button" type="button" data-copy="/brainblast requirements.md --fresh">copy</button>
+            </div>
+            <p class="install-note">Cached per name@version: re-runs only re-research what changed.</p>
+          </div>
+          <div class="install-panel" data-install-panel="fleet" role="tabpanel">
+            <div class="command-block" data-tilt>
+              <code>openclaw skills install @dsb-117/brainblast-fleet</code>
+              <button
+                class="copy-button"
+                type="button"
+                data-copy="openclaw skills install @dsb-117/brainblast-fleet"
+              >
+                copy
+              </button>
+            </div>
+            <p class="install-note">
+              Autonomous corpus scout for OpenClaw agents: discover, prove RED→GREEN, submit.
+              Every six hours, unattended.
+              <a href="https://clawhub.ai/dsb-117/skills/brainblast-fleet" target="_blank" rel="noreferrer"
+                >View the skill on ClawHub ↗</a
+              >
+            </p>
+          </div>
         </div>
       </section>
 
+      <!-- ══════════ TOKEN ══════════ -->
       <section class="token-section" id="token" aria-labelledby="token-title">
-        <div class="token-inner token-pump">
-          <div>
-            <p class="eyebrow">Marketplace settlement</p>
-            <h2 id="token-title" class="token-title">
-              <span>$BRAIN supports the data market layer.</span>
-            </h2>
-            <p>
-              Settlement is out-of-band today: signed grant plus invoice. $BRAIN remains the planned
-              access, quality-bond, and contributor-reward rail for the marketplace.
-            </p>
-            <p class="contract-address">CA: 7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump</p>
+        <div class="token-orbit" aria-hidden="true">
+          <div class="orbit-ring r1"></div>
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-ring r3"></div>
+          <img class="token-coin" src="assets/brainblast_icon.png" alt="" data-token-coin />
+        </div>
+        <div class="token-copy">
+          <p class="eyebrow">The work token</p>
+          <h2 class="section-title" id="token-title">
+            <span class="title-line" data-split>Spend to use.</span>
+            <span class="title-line" data-split>Earn for work.</span>
+          </h2>
+          <p class="section-sub">
+            $BRAIN gates corpus access and pays contributors for proven catches. Rewards
+            come from a fixed, sales-separated pool tied to work that reproduces. No holder
+            yield. No promises. Just the economy that funds the moat.
+          </p>
+          <div class="token-actions">
+            <a
+              class="button button-primary"
+              href="https://pump.fun/coin/7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump"
+              target="_blank"
+              rel="noreferrer"
+              data-magnetic
+            >
+              <img class="pump-mark" src="assets/pump-logomark.svg" alt="" />
+              <span>Get $BRAIN on Pump.Fun</span>
+            </a>
+            <button
+              class="contract-chip"
+              type="button"
+              data-copy="7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump"
+              title="Copy contract address"
+            >
+              CA: 7qSrC…Bpump <span aria-hidden="true">⧉</span>
+            </button>
           </div>
-          <a
-            class="button button-primary"
-            href="https://pump.fun/coin/7qSrCNchoiFxtxikTJm8x892tGdrtNgsaghfcnDBpump"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View $BRAIN
-          </a>
+        </div>
+
+        <!-- ══════════ FLYWHEEL ══════════ -->
+        <div class="flywheel" data-flywheel aria-labelledby="flywheel-title">
+          <div class="flywheel-head">
+            <p class="eyebrow">The flywheel</p>
+            <h3 id="flywheel-title">Why every turn of the loop compounds.</h3>
+            <p>
+              Usage grows the corpus. The corpus funds the usage. Each pass makes the next
+              one stronger, and a retrieval tool can't copy a proof.
+            </p>
+          </div>
+
+          <div class="flywheel-loop">
+            <article class="fw-step" data-fw-step>
+              <span class="fw-num">01</span>
+              <h4>Run</h4>
+              <p>Developers and agents run brainblast, spending $BRAIN for corpus access.</p>
+            </article>
+            <span class="fw-arrow" data-fw-arrow aria-hidden="true">➔</span>
+            <article class="fw-step" data-fw-step>
+              <span class="fw-num">02</span>
+              <h4>Catch</h4>
+              <p>The guard layer stops real, silent footguns before they ship.</p>
+            </article>
+            <span class="fw-arrow" data-fw-arrow aria-hidden="true">➔</span>
+            <article class="fw-step" data-fw-step>
+              <span class="fw-num">03</span>
+              <h4>Prove</h4>
+              <p>Every catch becomes a proven VTI: RED code, GREEN fix, reproducible proof.</p>
+            </article>
+            <span class="fw-arrow" data-fw-arrow aria-hidden="true">➔</span>
+            <article class="fw-step" data-fw-step>
+              <span class="fw-num">04</span>
+              <h4>Deepen</h4>
+              <p>The corpus deepens the moat: it sharpens the tool and sells as training data.</p>
+            </article>
+            <span class="fw-arrow" data-fw-arrow aria-hidden="true">➔</span>
+            <article class="fw-step" data-fw-step>
+              <span class="fw-num">05</span>
+              <h4>Reward</h4>
+              <p>Sales fund $BRAIN payouts for proven work, pulling in more users and scouts.</p>
+            </article>
+          </div>
+
+          <div class="flywheel-return" data-fw-return aria-hidden="true">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+              <path d="M1180 4 C 1180 48, 20 48, 20 4" />
+            </svg>
+            <span>more users · more catches · back to 01</span>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer" id="footer">
-      <img src="assets/brainblast_centered.png" alt="brainblast" />
-      <span>© 2026 brainblast AI. All Rights Reserved.</span>
-      <div class="footer-actions">
-        <a class="footer-github" href="https://github.com/DSB-117/brainblast" target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-        <a class="footer-github" href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">
-          Registry
-        </a>
-        <nav class="social-links" aria-label="Brainblast social links">
-          <a
-            class="social-link"
-            href="https://x.com/brainblast_ai"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Brainblast on X"
-            title="X"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" />
-            </svg>
-          </a>
-          <a
-            class="social-link"
-            href="https://t.me/brainblastAI"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Brainblast on Telegram"
-            title="Telegram"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-            </svg>
-          </a>
-          <a
-            class="social-link"
-            href="https://discord.gg/nn5WRfyu43"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Join Brainblast on Discord"
-            title="Discord"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.28 18.28 0 0 0-5.487 0c-.163-.394-.406-.875-.617-1.25a.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.028C.533 9.046-.319 13.58.099 18.058a.082.082 0 0 0 .031.056c2.053 1.508 4.041 2.423 5.993 3.03a.078.078 0 0 0 .084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 12.3 12.3 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.007.128 12.3 12.3 0 0 1-1.873.891.077.077 0 0 0-.041.107c.361.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029c1.961-.607 3.95-1.522 6.002-3.03a.077.077 0 0 0 .032-.055c.5-5.177-.839-9.674-3.549-13.66a.061.061 0 0 0-.031-.029zM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.419s.956-2.419 2.157-2.419c1.211 0 2.176 1.096 2.157 2.419 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.086-2.157-2.419s.955-2.419 2.157-2.419c1.211 0 2.176 1.096 2.157 2.419 0 1.333-.946 2.419-2.157 2.419z" />
-            </svg>
-          </a>
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="site-footer">
+      <div class="footer-marquee" aria-hidden="true">
+        <div class="footer-marquee-track" data-marquee>
+          <span>PREDICT</span><i>✦</i><span>ENFORCE</span><i>✦</i><span>WATCH</span><i>✦</i
+          ><span>COMPOUND</span><i>✦</i><span>PREDICT</span><i>✦</i><span>ENFORCE</span><i>✦</i
+          ><span>WATCH</span><i>✦</i><span>COMPOUND</span><i>✦</i>
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/brainblast_icon.png" alt="brainblast" />
+          <span>brainblast</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="https://github.com/DSB-117/brainblast" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/DSB-117/brainblast/blob/main/ROADMAP.md" target="_blank" rel="noreferrer">Roadmap</a>
+          <a href="https://registry.brainblast.tech" target="_blank" rel="noreferrer">Registry</a>
+          <a href="https://clawhub.ai/dsb-117/skills/brainblast-fleet" target="_blank" rel="noreferrer">Fleet on ClawHub</a>
+          <a href="https://token.brainblast.tech" target="_blank" rel="noreferrer">Token</a>
         </nav>
+        <span class="footer-copy">© 2026 brainblast AI. All rights reserved.</span>
       </div>
     </footer>
 
     <div class="toast" data-toast role="status" aria-live="polite">Copied</div>
-    <script src="script.js?v=brainblast-today-1"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
